@@ -60,7 +60,7 @@ namespace _01_Scripts.Timer
             {
                 yield return new WaitForSeconds(timerSpeedChange);
                 time -= timerSpeedChange ;
-                TimerValue = Math.Round(time, 3);
+                TimerValue = Math.Round(time, roundTimer);
             }
 
             startCorutine = false;

@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1075183896857330890}
   - component: {fileID: 5010979406954385854}
   m_Layer: 0
-  m_Name: insect
+  m_Name: mosquito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9341d5d7cbb200c4abdd130b1381298c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _score: 1
   _speed: 5
-  _score: 0
   _moveDuration: 0.5
   _moveDurationOffset: 0.4
 --- !u!1 &8681705433339876937

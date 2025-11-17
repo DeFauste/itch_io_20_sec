@@ -1,38 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Directions _spawnDirection;
+    [SerializeField] private Directions _spawnRotation;
     [SerializeField] private GameObject _insectPrefab;
     [SerializeField] private float _count;
     [SerializeField] private float _spawnDelay;
     
-    private Quaternion _currentDirection;
-    // Start is called before the first frame update
+    private Quaternion _currentRotation;
+    
     void Start()
     {
-        SetDirection();
+        SetRotation();
         StartCoroutine(Spawn());
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         
     }
 
-    private void SetDirection()
+    private void SetRotation()
     {
-        if (_spawnDirection == Directions.Right)
+        if (_spawnRotation == Directions.Right)
         {
-            _currentDirection = Quaternion.Euler(0, 0, 0);
+            _currentRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (_spawnDirection == Directions.Left)
+        else if (_spawnRotation == Directions.Left)
         {
-            _currentDirection = Quaternion.Euler(0, 180, 0);
+            _currentRotation = Quaternion.Euler(0, 180, 0);
         }
     }
     
@@ -40,7 +41,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < _count; i++)
         {
-            Instantiate(_insectPrefab, transform.position, _currentDirection);
+            Instantiate(_insectPrefab, transform.position, _currentRotation);
             yield return new WaitForSeconds(_spawnDelay);
         }
     }

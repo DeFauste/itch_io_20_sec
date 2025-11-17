@@ -10,10 +10,12 @@ public class Mosquito : InsectBase
     [SerializeField] private float _moveDurationOffset;
     
     private Vector3 _currentDirection;
+    private float _directionX;
     
     void Start()
     {
-        _currentDirection = new Vector3(1f, Random.Range(-1f,1f), 0);
+        
+        _currentDirection = new Vector3(1f, Random.Range(-1f, 1f), 0);
         StartCoroutine(Move());
     }
 
@@ -37,8 +39,7 @@ public class Mosquito : InsectBase
                 yield return null;
             }
             
-            _currentDirection = new Vector3(Random.Range(-0.6f, 1f), Random.Range(-0.5f, 0.5f), 0);
-            //_currentDirection = -_currentDirection;
+            _currentDirection = new Vector3(Random.Range(-0.6f, 1.2f), Random.Range(-0.5f, 0.5f), 0);
         }
     }
 }

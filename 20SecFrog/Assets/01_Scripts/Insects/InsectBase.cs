@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InsectBase : MonoBehaviour
 {
-    [SerializeField] protected float _speed;
-
     [SerializeField] private float _score;
     
+    [Header("Движение")]
+    [SerializeField] protected float _speed;
     
     void Start()
     {
@@ -17,6 +17,11 @@ public class InsectBase : MonoBehaviour
     void Update()
     {
         //transform.Translate(Vector3.right * _speed * Time.deltaTime);
+    }
+
+    public float GetScore()
+    {
+        return _score;
     }
     
 }

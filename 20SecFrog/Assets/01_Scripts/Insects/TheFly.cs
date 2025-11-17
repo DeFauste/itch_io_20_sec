@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class TheFly : InsectBase
 {
-    [SerializeField] private float _durationOfSpeed = 1f;
-    
     private float _direction;
     private float _frequencyX;
     private float _frequencyY;
@@ -13,18 +11,16 @@ public class TheFly : InsectBase
     private float _offsetX;
     private float _offsetY;
     private float _sideSpeedMultiplier;
-    private float _timer;
-
     private void Start()
     {
         SetDirection();
 
         _center = transform.position;
-        _radius = Random.Range(1.2f, 2.2f);
-        _offsetX = Random.Range(1.5f, 2.2f);
-        _offsetY = Random.Range(0.4f, 0.8f);
-        _frequencyX = Random.Range(1.67f, 2.55f);
-        _frequencyY = Random.Range(2.22f, 3.66f);
+        _radius = -Random.Range(1.2f, 2.6f);
+        _offsetX = Random.Range(0.5f, 2.5f);
+        _offsetY = Random.Range(0.6f, 1.1f);
+        _frequencyX = Random.Range(1.6f, 2.5f);
+        _frequencyY = Random.Range(2.2f, 3.6f);
         StartCoroutine(Move());
     }
 
@@ -40,13 +36,7 @@ public class TheFly : InsectBase
         
         while (true)
         {
-            _timer += Time.deltaTime;
-            if (_timer >= _durationOfSpeed)
-            {
-                _timer = 0;
-               _sideSpeedMultiplier = Random.Range(-0.5f, 2f);
-            }
-            angle += _speed * Time.deltaTime; 
+            angle += Time.deltaTime;
             
             float x = Mathf.Cos(angle * _frequencyX) * _radius * _offsetX;
             float y = Mathf.Sin(angle * _frequencyY) * _radius * _offsetY;

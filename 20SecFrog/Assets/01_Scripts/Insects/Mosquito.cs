@@ -6,15 +6,12 @@ using UnityEngine.Serialization;
 public class Mosquito : InsectBase
 {
     [SerializeField] private float _moveDuration;
-    
     [SerializeField] private float _moveDurationOffset;
     
     private Vector3 _currentDirection;
-    private float _directionX;
     
     void Start()
     {
-        
         _currentDirection = new Vector3(1f, Random.Range(-1f, 1f), 0);
         StartCoroutine(Move());
     }

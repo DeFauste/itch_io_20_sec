@@ -215,13 +215,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 12
-  _maxX: 9
-  _minX: -9
-  _maxY: 4
-  _minY: -3
   _speed: 1
   _moveDuration: 1.5
-  _movesCount: 3
+  _movesCount: 2
+  _minScale: 0.75
+  _maxScale: 1.25
+  _firstMoveDuration: 2
   _suicideTime: 2
   _curve:
     serializedVersion: 2
@@ -256,3 +255,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _maxX: 8.5
+  _minX: -8.5
+  _maxY: 4.5
+  _minY: -4
+  _suicideRadius: 12

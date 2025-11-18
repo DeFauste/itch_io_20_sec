@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,12 +12,6 @@ public class MayBug : InsectBase
         _currentDirection = Vector3.right;
         StartCoroutine(Move());
     }
-
-    void Update()
-    {
-        
-    }
-    
     private IEnumerator Move()
     {
         float angle = Random.Range(0f, 6f);
@@ -28,7 +20,12 @@ public class MayBug : InsectBase
             angle += Time.deltaTime;
             _currentDirection = new Vector3(1f, Mathf.Cos(angle) * _offsetY, 0f);
             transform.Translate(_currentDirection * _speed * Time.deltaTime);
-           
+
+            if (Mathf.Abs(transform.position.x) > 12f || Mathf.Abs(transform.position.y) > 12f)
+            {
+                gameObject.SetActive(false);
+            }
+            
             yield return null;
           
         }

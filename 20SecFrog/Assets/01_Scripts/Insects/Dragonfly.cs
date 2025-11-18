@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Mosquito : InsectBase
+public class Dragonfly : InsectBase
 {
     [SerializeField] private float _moveDuration;
     [SerializeField] private int _movesCount;
@@ -23,14 +23,14 @@ public class Mosquito : InsectBase
         _scaleMultiplier = Random.Range(0.8f, 1.2f);
         StartCoroutine(Move());
     }
+
     private IEnumerator Move()
     {
       
         while (_movesCount > 0)
         {
             _newScale = Vector3.one * _scaleMultiplier;
-            _endPosition = new Vector3(Random.Range(_minX, _maxX), Random.Range(_minY, _maxY), 0f);
-            
+            _endPosition = new Vector3(Random.Range(_minX, _maxX), Random.Range(_minY, _maxY), 0f);;
              while (_elapsedTime < _moveDuration)
              {
                _elapsedTime += Time.deltaTime;
@@ -42,7 +42,7 @@ public class Mosquito : InsectBase
 
              _elapsedTime = 0f;
              _startPosition = transform.position;
-             _endPosition = _startPosition + new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0f);
+             _endPosition = new Vector3(Random.Range(_minX, _maxX), Random.Range(_minY, _maxY), 0f);
              _currentScale = transform.localScale;
              _scaleMultiplier = Random.Range(0.8f, 1.2f);
              _newScale = _currentScale * Mathf.Pow(1.2f, _scaleMultiplier);

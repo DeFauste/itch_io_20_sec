@@ -1,13 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InsectBase : MonoBehaviour
 {
     [SerializeField] private float _score;
     
+    [Header("Ограничение движения (под size камеры)")]
+    [SerializeField] protected float _maxX = 9f;
+    [SerializeField] protected float _minX = -9f;
+    [SerializeField] protected float _maxY = 4f;
+    [SerializeField] protected float _minY = -3f;
+    
     [Header("Движение")]
-    [SerializeField] protected float _speed;
+    [SerializeField] protected float _speed = 1f;
     
     void Start()
     {
@@ -16,7 +20,7 @@ public class InsectBase : MonoBehaviour
     
     void Update()
     {
-        //transform.Translate(Vector3.right * _speed * Time.deltaTime);
+       
     }
 
     public float GetScore()

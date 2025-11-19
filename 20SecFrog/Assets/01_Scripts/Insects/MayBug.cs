@@ -21,7 +21,7 @@ public class MayBug : InsectBase
             _currentDirection = new Vector3(1f, Mathf.Cos(angle) * _offsetY, 0f);
             transform.Translate(_currentDirection * _speed * Time.deltaTime);
 
-            if (Mathf.Abs(transform.position.x) > 12f || Mathf.Abs(transform.position.y) > 12f)
+            if (Mathf.Abs(transform.position.x) > 15f || Mathf.Abs(transform.position.y) > 15f)
             {
                 gameObject.SetActive(false);
             }

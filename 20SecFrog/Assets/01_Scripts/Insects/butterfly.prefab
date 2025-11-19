@@ -132,10 +132,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _score: 0
   _speed: 1
-  _frequencyY: 0.5
-  _offsetY: 1
+  _frequencyY: 0.175
+  _jumpFrequency: 2
+  _jumpOffset: 0.28
+  _offsetY: 2
   _radius: 1
-  _sideSpeedMultiplier: 2
+  _sideSpeedMultiplier: 3
 --- !u!1 &6175996416427452416
 GameObject:
   m_ObjectHideFlags: 0

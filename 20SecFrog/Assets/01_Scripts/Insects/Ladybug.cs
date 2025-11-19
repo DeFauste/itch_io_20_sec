@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Butterfly : InsectBase
+public class Ladybug : InsectBase
 {
     [SerializeField] private float _frequencyY;
-    [SerializeField] private float _jumpFrequency;
-    [SerializeField] private float _jumpOffset;
     [SerializeField] private float _offsetY;
     [SerializeField] private float _radius;
     [SerializeField] private float _sideSpeedMultiplier; 
@@ -36,7 +34,7 @@ public class Butterfly : InsectBase
         {
             angle += Time.deltaTime * 2 * Mathf.PI * _speed;
 
-            float y = Mathf.Sin(angle * _frequencyY) * _radius * _offsetY + Mathf.Sin(angle * _jumpFrequency) * _jumpOffset;
+            float y = Mathf.Sin(angle * _frequencyY) * _radius * _offsetY;
             Vector3 newPosition = new Vector3(0f, y, 0f);
             transform.position = _center + newPosition;
             _center += new Vector3(_speed * _sideSpeedMultiplier * _direction, 0f, 0f) * Time.deltaTime;

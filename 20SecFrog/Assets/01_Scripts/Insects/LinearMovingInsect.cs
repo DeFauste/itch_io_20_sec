@@ -12,9 +12,8 @@ public class LinearMovingInsect : InsectBase
     [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected AnimationCurve _curve;
 
-    [Header("Ограничения под size камеры")] [SerializeField]
-    protected float _maxX = 9f;
-
+    [Header("Ограничения под size камеры")]
+    [SerializeField] protected float _maxX = 9f;
     [SerializeField] protected float _minX = -9f;
     [SerializeField] protected float _maxY = 4f;
     [SerializeField] protected float _minY = -3f;
@@ -49,7 +48,7 @@ public class LinearMovingInsect : InsectBase
         while (_elapsedTime < _firstMoveDuration)
         {
             _elapsedTime += Time.deltaTime;
-            float percentageComplete = _elapsedTime / _moveDuration;
+            float percentageComplete = _elapsedTime / _firstMoveDuration;
             transform.position = Vector3.Lerp(_startPosition, _endPosition, _curve.Evaluate(percentageComplete));
             transform.localScale = Vector3.Lerp(_currentScale, _newScale, _curve.Evaluate(percentageComplete));
             yield return null;

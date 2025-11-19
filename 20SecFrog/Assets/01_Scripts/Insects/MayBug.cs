@@ -14,7 +14,7 @@ public class MayBug : InsectBase
     }
     private IEnumerator Move()
     {
-        float angle = Random.Range(0f, 6f);
+        float angle = Random.Range(0f, 2 * Mathf.PI);
         while (true)
         {
             angle += Time.deltaTime;

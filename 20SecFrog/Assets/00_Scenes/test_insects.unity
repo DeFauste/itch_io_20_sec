@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &176038095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnRotation: 0
-  _insectPrefab: {fileID: 6835169389761641818, guid: d05d5b358ead7a74a80052b1e717e0da, type: 3}
+  _insectPrefab: {fileID: 6075242118899971877, guid: 2c0a20df1b0173646acb1f7331628186, type: 3}
   _count: 4
   _spawnDelay: 3
 --- !u!212 &176038096
@@ -377,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1806462653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnRotation: 1
-  _insectPrefab: {fileID: 7574802155327578880, guid: 701544ba0b2b42745a2d6b77f6275240, type: 3}
+  _insectPrefab: {fileID: 6075242118899971877, guid: 2c0a20df1b0173646acb1f7331628186, type: 3}
   _count: 4
   _spawnDelay: 3
 --- !u!212 &1806462654

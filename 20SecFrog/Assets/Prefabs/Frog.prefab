@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &618391814467356585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8092854325445000905}
+  m_Layer: 5
+  m_Name: TongueOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8092854325445000905
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618391814467356585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7380290354714999703}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -50, y: 57.3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1656555544787515797
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +68,7 @@ RectTransform:
   m_Children:
   - {fileID: 6110501185966503156}
   - {fileID: 2045753300955140191}
+  - {fileID: 8092854325445000905}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -94,6 +130,20 @@ MonoBehaviour:
   rightEye: {fileID: 2045753300955140191}
   maxEyeMovement: 15
   smoothSpeed: 0.4
+  tongueOrigin: {fileID: 8092854325445000905}
+  tongueTip: {fileID: 0}
+  ropeSegments: 15
+  segmentLength: 0.1
+  tongueSpeed: 20
+  retractSpeed: 15
+  gravity: 1
+  damping: 0.95
+  physicsIterations: 3
+  tongueTipAliveTimeSec: 0.1
+  tongueCooldownTimeSec: 0.1
+  tongueLineRenderer: {fileID: 0}
+  tongueMaterial: {fileID: 2100000, guid: cba5b050125cbbb448b943423690b3f1, type: 2}
+  tongueWidth: 0.5
 --- !u!1 &4955774385945303481
 GameObject:
   m_ObjectHideFlags: 0

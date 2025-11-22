@@ -315,7 +315,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 2089955677}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -812,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 765036496}
     - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
       propertyPath: tongueSpeed
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
       propertyPath: tongueWidth
@@ -820,11 +820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
       propertyPath: retractSpeed
-      value: 15
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
       propertyPath: ropeSegments
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
       propertyPath: segmentLength

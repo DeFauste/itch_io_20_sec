@@ -4,7 +4,6 @@ Shader "Custom/TongueShader"
     {
         _MainTex ("Tongue Texture", 2D) = "white" {}
         _Color ("Tint Color", Color) = (1,1,1,1)
-        _TipColor ("Tip Color", Color) = (1,0.5,0.5,1)
         _EndRoundness ("End Roundness", Range(0, 1)) = 0.5
     }
     
@@ -46,7 +45,6 @@ Shader "Custom/TongueShader"
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _Color;
-            float4 _TipColor;
             float _EndRoundness;
 
             v2f vert (appdata v)
@@ -60,9 +58,7 @@ Shader "Custom/TongueShader"
             }
 
             fixed4 frag (v2f i) : SV_Target
-            {
-                fixed4 texMask = tex2D(_MainTex, i.uv).rrra;
-                
+            {                
                 float distFromCenter = abs(i.uv.y - 0.5) * 2.0;
                 
                 float endFactor = 0.0;
@@ -86,9 +82,8 @@ Shader "Custom/TongueShader"
                     discard;
                 }
                 
-                fixed4 gradientColor = lerp(_Color, _TipColor, i.uv.x);
-                
-                fixed4 finalColor = texMask * gradientColor;
+                float4 texMask = tex2D(_MainTex, i.uv);
+                fixed4 finalColor = lerp(_Color, texMask, i.uv.x);
                 
                 float edgeAlpha = 1.0 - smoothstep(0.8, 1.0, distFromCenter);
                 finalColor.a *= edgeAlpha;

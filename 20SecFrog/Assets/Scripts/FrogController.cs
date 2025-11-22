@@ -21,6 +21,7 @@ public class FrogController : MonoBehaviour
     [Header("Tongue References")]
     public RectTransform tongueOrigin;
     public GameObject tongueTip;
+    public GameObject mouth;
 
     [Header("Tongue Physics")]
     [Range(1, 50)] public int ropeSegments = 15;
@@ -41,8 +42,7 @@ public class FrogController : MonoBehaviour
     public Material tongueMaterial;
     public Texture2D tongueTexture;
     public Color tongueBaseColor = new Color(1f, 0.3f, 0.3f, 1f);
-    public Color tongueTipColor = new Color(1f, 0.6f, 0.6f, 1f);
-    [Range(0f, 1f)] public float endRoundness = 0.3f;
+    [Range(0f, 1f)] public float endRoundness = 0.1f;
     [Range(0.01f, 1f)] public float tongueWidth = 0.5f;
 
     private Canvas canvas;
@@ -171,9 +171,6 @@ public class FrogController : MonoBehaviour
             if (tongueMaterial.HasProperty("_Color"))
                 tongueMaterial.SetColor("_Color", tongueBaseColor);
 
-            if (tongueMaterial.HasProperty("_TipColor"))
-                tongueMaterial.SetColor("_TipColor", tongueTipColor);
-
             if (tongueMaterial.HasProperty("_EndRoundness"))
                 tongueMaterial.SetFloat("_EndRoundness", endRoundness);
         }
@@ -185,6 +182,7 @@ public class FrogController : MonoBehaviour
 
         tongueLineRenderer.enabled = false;
         tongueTip.SetActive(false);
+        mouth.SetActive(false);
     }
 
     void UpdateMouseWorldPosition()
@@ -373,6 +371,8 @@ public class FrogController : MonoBehaviour
 
     IEnumerator TongueAnimation()
     {
+        mouth.SetActive(true);
+
         // Wait for tongue to reach target
         while (extending)
         {
@@ -400,6 +400,8 @@ public class FrogController : MonoBehaviour
         {
             yield return null;
         }
+
+        mouth.SetActive(false);
 
         coolingDown = true;
         yield return new WaitForSeconds(tongueCooldownTimeSec);

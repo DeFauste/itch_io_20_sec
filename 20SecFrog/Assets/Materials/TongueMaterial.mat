@@ -42,10 +42,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _EndRoundness: 0.3
+    - _EndRoundness: 0.1
     - _PerspectiveScale: 1.5
     m_Colors:
-    - _Color: {r: 1, g: 0.3, b: 0.3, a: 1}
+    - _Color: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _TipColor: {r: 1, g: 0.6, b: 0.6, a: 1}

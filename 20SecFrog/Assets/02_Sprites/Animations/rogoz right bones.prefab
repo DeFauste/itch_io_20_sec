@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 8870251927621743775}
   - component: {fileID: 1214650843898858500}
   m_Layer: 0
-  m_Name: rogoz right bones (1)
+  m_Name: rogoz right bones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

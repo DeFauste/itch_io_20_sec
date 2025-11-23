@@ -22,8 +22,6 @@ namespace Assets._01_Scripts.Environment
 
         private void Start()
         {
-            //Random.InitState(((int)Time.timeAsDouble));
-
             if (generateCloudsOnStart)
             {
                 GenerateCloudsBetweenPoints();
@@ -36,10 +34,12 @@ namespace Assets._01_Scripts.Environment
                 if (rightDirection && cloud.transform.transform.position.x > rightPoint.position.x)
                 {
                     cloud.transform.position = new Vector2(leftPoint.position.x, cloud.transform.position.y);
+                    cloud.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
                 }
                 else if (!rightDirection && cloud.transform.position.x < leftPoint.position.x)
                 {
                     cloud.transform.position = new Vector2(rightPoint.position.x, cloud.transform.position.y);
+                    cloud.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
                 }
             }
         }

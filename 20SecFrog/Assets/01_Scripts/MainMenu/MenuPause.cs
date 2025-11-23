@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace MainMenu
 {
     public sealed class MenuPause : MonoBehaviour
     {
-        [SerializeField] private Button startGameButton;
+        [FormerlySerializedAs("RestartGameButton")] [SerializeField] private Button restartGameButton;
         [SerializeField] private Button exitGameButton;
         [SerializeField] private GameObject pauseMenu;
 
         private void OnEnable()
         {
-            startGameButton.onClick.AddListener(() => StartGame());
+            restartGameButton.onClick.AddListener(() => StartGame());
             exitGameButton.onClick.AddListener(() => ExitGame());
         }
 

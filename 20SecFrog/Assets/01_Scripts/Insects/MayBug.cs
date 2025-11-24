@@ -15,7 +15,7 @@ public class MayBug : InsectBase
     private void Start()
     {
         SetDirection();
-        transform.localScale = Vector3.one * Random.Range(0.8f, 1.2f);
+        //transform.localScale = Vector3.one * Random.Range(0.8f, 1.2f);
         _center = transform.position;
 
         StartCoroutine(Move());

@@ -19,6 +19,9 @@ public class LinearMovingInsect : InsectBase
     //protected Vector3 _currentScale;
     //protected Vector3 _newScale;
     //protected float _scaleMultiplier;
+
+    protected Vector3 _screenMoveMax;
+    protected Vector3 _screenMoveMin;
     
     protected virtual void Start()
     {
@@ -41,7 +44,7 @@ public class LinearMovingInsect : InsectBase
         int movesCount = 0;
         while (movesCount < _movesCount)
         {
-            Vector3 endPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
+            Vector3 endPoint = GetRandomPointInRange(_screenMoveMin, _screenMoveMax);
             yield return MoveTo(endPoint, _moveDuration);
 
             movesCount++;

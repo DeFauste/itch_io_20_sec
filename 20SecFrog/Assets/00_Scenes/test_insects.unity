@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnRotation: 0
-  _insectPrefab: {fileID: 8815360071389027414, guid: 50e25cd850b7786449babab30e20b3f6, type: 3}
-  _count: 4
+  _insectPrefab: {fileID: 8779828984317161580, guid: 85ed7f45782fb734bbb6a546b8b69061, type: 3}
+  _count: 1
   _spawnDelay: 3
 --- !u!212 &176038096
 SpriteRenderer:
@@ -391,9 +391,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnRotation: 1
-  _insectPrefab: {fileID: 8815360071389027414, guid: 50e25cd850b7786449babab30e20b3f6, type: 3}
-  _count: 4
-  _spawnDelay: 2
+  _insectPrefab: {fileID: 5697013812920962929, guid: 425bec9eec7e1d84f9c39be1cc723098, type: 3}
+  _count: 10
+  _spawnDelay: 1
 --- !u!212 &1806462654
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PatrolingInsect : InsectBase
 {
-    [SerializeField] private Vector3 _moveMinLimit = new(-9f, -3f, 0f);
-    [SerializeField] private Vector3 _moveMaxLimit = new(9f, 4f, 0f);
     [SerializeField] private float _moveDuration = 3f;
     [SerializeField] private int _movesCount = 4;
     [SerializeField] private AnimationCurve _curve;
@@ -13,12 +11,17 @@ public class PatrolingInsect : InsectBase
     [SerializeField] private Vector3 _patrolLimits = new(1f, 1f, 0f);
     [SerializeField] private float _patrolDuration = 0.5f;
     [SerializeField] private int _patrolCount = 4;
-
+    
+    [Header("Ограничения под size камеры")]
+    [SerializeField] private Vector3 _moveMinLimit = new(-9f, -3f, 0f);
+    [SerializeField] private Vector3 _moveMaxLimit = new(9f, 4f, 0f);
     [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected float _suicideRadius = 12f;
 
     private void Start()
     {
+        _moveDuration /= _speed;
+        _patrolDuration /= _speed;
         StartCoroutine(Move());
     }
 
@@ -56,6 +59,9 @@ public class PatrolingInsect : InsectBase
     private IEnumerator MoveTo(Vector3 endPoint, float duration)
     {
         Vector3 startPoint = transform.position;
+        int rotation = endPoint.x > startPoint.x ? 0 : 180;
+        transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+        
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)

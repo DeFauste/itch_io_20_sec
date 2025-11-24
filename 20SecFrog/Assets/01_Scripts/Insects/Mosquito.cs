@@ -1,11 +1,11 @@
+using UnityEngine;
+
 public class Mosquito : LinearMovingInsect
 {
     protected override void Start()
     {
-        _limitXleft = -2f;
-        _limitXright = 2f;
-        _limitYdown = -2f;
-        _limitYup = 2f;
+        _moveMaxLimit = new Vector3 (2f, 2f, 0f);
+        _moveMinLimit = new Vector3 (0.5f, 0.5f, 0f);
         base.Start();
     }
 }

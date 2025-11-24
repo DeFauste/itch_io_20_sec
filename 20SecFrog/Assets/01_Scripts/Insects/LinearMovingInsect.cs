@@ -5,37 +5,27 @@ public class LinearMovingInsect : InsectBase
 {
     [SerializeField] protected float _moveDuration;
     [SerializeField] protected int _movesCount;
-    [SerializeField] protected float _minScale;
-    [SerializeField] protected float _maxScale;
+    //[SerializeField] protected float _minScale;
+    //[SerializeField] protected float _maxScale;
     [SerializeField] protected float _firstMoveDuration;
-
-    [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected AnimationCurve _curve;
 
     [Header("Ограничения под size камеры")]
-    [SerializeField] protected float _maxX = 9f;
-    [SerializeField] protected float _minX = -9f;
-    [SerializeField] protected float _maxY = 4f;
-    [SerializeField] protected float _minY = -3f;
+    [SerializeField] protected Vector3 _moveMinLimit = new(-9f, -3f, 0f);
+    [SerializeField] protected Vector3 _moveMaxLimit = new(9f, 4f, 0f);
+    [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected float _suicideRadius = 12f;
 
-    protected Vector3 _startPosition;
-    protected Vector3 _endPosition;
-    protected Vector3 _currentScale;
-    protected Vector3 _newScale;
-    protected float _scaleMultiplier;
-    protected float _elapsedTime;
-    protected float _limitXright;
-    protected float _limitXleft;
-    protected float _limitYup;
-    protected float _limitYdown;
-
+    //protected Vector3 _currentScale;
+    //protected Vector3 _newScale;
+    //protected float _scaleMultiplier;
+    
     protected virtual void Start()
     {
         _moveDuration /= _speed;
-        _startPosition = transform.position;
-        _currentScale = transform.localScale;
-        _scaleMultiplier = Random.Range(_minScale, _maxScale);
+        
+        //_currentScale = transform.localScale;
+        //_scaleMultiplier = Random.Range(_minScale, _maxScale);
 
         StartCoroutine(Move());
     }
@@ -43,56 +33,56 @@ public class LinearMovingInsect : InsectBase
     protected IEnumerator Move()
     {
         //первый влет на экран
-        _newScale = Vector3.one * _scaleMultiplier;
-        _endPosition = new Vector3(Random.Range(_minX, _maxX), Random.Range(_minY, _maxY), 0f);
-        while (_elapsedTime < _firstMoveDuration)
-        {
-            _elapsedTime += Time.deltaTime;
-            float percentageComplete = _elapsedTime / _firstMoveDuration;
-            transform.position = Vector3.Lerp(_startPosition, _endPosition, _curve.Evaluate(percentageComplete));
-            transform.localScale = Vector3.Lerp(_currentScale, _newScale, _curve.Evaluate(percentageComplete));
-            yield return null;
-        }
+        //_newScale = Vector3.one * _scaleMultiplier;
+        Vector3 firstPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
+        yield return MoveTo(firstPoint, _firstMoveDuration);
 
         //движение по экрану
-        while (_movesCount > 0)
+        int movesCount = 0;
+        while (movesCount < _movesCount)
         {
-            _elapsedTime = 0f;
-            _startPosition = transform.position;
-            _endPosition = new Vector3(Random.Range(_limitXleft, _limitXright), Random.Range(_limitYdown, _limitYup),
-                0f);
-            while (_elapsedTime < _moveDuration)
-            {
-                _elapsedTime += Time.deltaTime;
-                float percentageComplete = _elapsedTime / _moveDuration;
-                transform.position = Vector3.Lerp(_startPosition, _endPosition, _curve.Evaluate(percentageComplete));
-                transform.localScale = Vector3.Lerp(_currentScale, _newScale, _curve.Evaluate(percentageComplete));
-                yield return null;
-            }
+            Vector3 endPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
+            yield return MoveTo(endPoint, _moveDuration);
 
-            _elapsedTime = 0f;
-            _startPosition = transform.position;
-            _endPosition = new Vector3(Random.Range(_limitXleft, _limitXright), Random.Range(_limitYdown, _limitYup),
-                0f);
-            _currentScale = transform.localScale;
-            _scaleMultiplier = Random.Range(_minScale, _maxScale);
-            _newScale = Vector3.one * _scaleMultiplier;
-            _movesCount--;
+            movesCount++;
         }
 
         //выпиливаем насекомое, если долго не съедают
         float suicideAngle = Random.Range(-5f, 185f);
         float x = Mathf.Cos(suicideAngle) * _suicideRadius;
         float y = Mathf.Sin(suicideAngle) * _suicideRadius;
-        _endPosition = new Vector3(x, y, 0f);
-        while (_elapsedTime < _suicideTime)
-        {
-            _elapsedTime += Time.deltaTime;
-            float percentageComplete = _elapsedTime / _suicideTime;
-            transform.position = Vector3.Lerp(_startPosition, _endPosition, _curve.Evaluate(percentageComplete));
-            yield return null;
-        }
+        Vector3 suicidePoint = new Vector3(x, y, 0f);
+
+        yield return MoveTo(suicidePoint, _suicideTime);
 
         gameObject.SetActive(false);
+    }
+
+
+    private IEnumerator MoveTo(Vector3 endPoint, float duration)
+    {
+        Vector3 startPoint = transform.position;
+        int rotation = endPoint.x > startPoint.x ? 0 : 180;
+        transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float percentageComplete = elapsedTime / duration;
+            Vector3 newPosition = Vector3.Lerp(startPoint, endPoint, _curve.Evaluate(percentageComplete));
+            transform.position = newPosition;
+            yield return null;
+        }
+    }
+
+    private Vector3 GetRandomPointInRange(Vector3 min, Vector3 max)
+    {
+        return new Vector3(
+            Random.Range(min.x, max.x),
+            Random.Range(min.y, max.y),
+            0f
+        );
     }
 }

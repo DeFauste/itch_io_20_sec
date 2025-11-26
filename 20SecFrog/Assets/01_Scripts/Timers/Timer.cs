@@ -13,7 +13,7 @@ namespace _01_Scripts.Timer
     {
         // Время с которого будет идти отсчёт времени
         [SerializeField] private int timeMax = 20;
-        // Скорость с которой будет изменяться значение таймера
+        // Скорость с которой будет изменятся значение таймера
         [SerializeField] private float timerSpeedChange = 0.1f;
         // Ссылка на UI для вывода значения таймера
         [SerializeField] private TextMeshProUGUI timerText;

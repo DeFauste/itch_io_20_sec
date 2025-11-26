@@ -7,7 +7,7 @@ namespace MainMenu
 {
     public sealed class MenuPause : MonoBehaviour
     {
-        [FormerlySerializedAs("RestartGameButton")] [SerializeField] private Button restartGameButton;
+        [SerializeField] private Button restartGameButton;
         [SerializeField] private Button exitGameButton;
         [SerializeField] private GameObject pauseMenu;
 

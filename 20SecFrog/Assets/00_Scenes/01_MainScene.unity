@@ -845,12 +845,12 @@ GameObject:
   - component: {fileID: 1111356052}
   - component: {fileID: 1111356053}
   m_Layer: 0
-  m_Name: TripRound
+  m_Name: TripObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1111356052
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,6 @@ public class Dragonfly : LinearMovingInsect
     {
         _screenMoveMax = _moveMaxLimit;
         _screenMoveMin = _moveMinLimit;
-        base.Start();
+        base.Start();                                  
     }
 }

@@ -134,10 +134,7 @@ MonoBehaviour:
   _speed: 1
   _moveDuration: 1.2
   _movesCount: 4
-  _minScale: 0.75
-  _maxScale: 1.25
   _firstMoveDuration: 4
-  _suicideTime: 4
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -162,10 +159,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxX: 9
-  _minX: -9
-  _maxY: 4
-  _minY: -3
+  _moveMinLimit: {x: -9, y: -3, z: 0}
+  _moveMaxLimit: {x: 9, y: 4, z: 0}
+  _suicideTime: 4
   _suicideRadius: 12
 --- !u!1 &8681705433339876937
 GameObject:

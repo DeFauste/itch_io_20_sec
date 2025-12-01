@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
             var y = Random.Range(-_spawnOffsetY, _spawnOffsetY);
             var x = transform.position.x;
             var spawnPosition = new Vector3(x, y , 0f);
-            Instantiate(_insectPrefab, spawnPosition, _currentRotation);
+            Instantiate(_insectPrefab, spawnPosition, _currentRotation, gameObject.transform);
             var spawnTime = Random.Range(_minSpawnTime, _maxSpawnTime); 
             yield return new WaitForSeconds(spawnTime);
         }

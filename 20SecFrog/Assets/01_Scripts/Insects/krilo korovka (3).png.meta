@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4249db97a135ce49bf2c40c982caf30
+guid: 8dde91fbb226283489d76ba4ad097ee8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 75
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,53 +97,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: krilo babochka_0
+      name: krilo korovka (3)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 86
-        height: 125
+        y: 0
+        width: 130
+        height: 94
       alignment: 9
-      pivot: {x: 0.8638603, y: 0.21560474}
+      pivot: {x: 0.9574176, y: 0.07684257}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 18, y: -62.5}
-        - {x: -43, y: -62.5}
-        - {x: -43, y: 62.5}
-        - {x: 43, y: 62.5}
-        - {x: 43, y: -25.5}
+      - - {x: -65, y: 19}
+        - {x: -65, y: 47}
+        - {x: -12, y: 47}
+        - {x: 65, y: -29}
+        - {x: 65, y: -47}
+        - {x: 1, y: -47}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45999406af64f274f9c75e4ff816cf44
-      internalID: -2049328406
+      spriteID: 21dc25bf0398e6d4ba1ade5463850c68
+      internalID: 188803283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: krilo babochka_1
+      name: krilo korovka (3)_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 0
-        width: 102
-        height: 121
+        x: 97
+        y: 18
+        width: 41
+        height: 90
       alignment: 9
-      pivot: {x: 0.06591086, y: 0.50879633}
+      pivot: {x: 0.8658533, y: 0.02380939}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -51, y: -60.5}
-        - {x: -51, y: 8.5}
-        - {x: -13, y: 60.5}
-        - {x: 51, y: 60.5}
-        - {x: 51, y: -60.5}
+      - - {x: 20.5, y: -45}
+        - {x: 12.5, y: -45}
+        - {x: -20.5, y: -5}
+        - {x: -20.5, y: 45}
+        - {x: -0.5, y: 45}
+        - {x: 20.5, y: 11}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8f4e9fb3a14ae47a3cc9ca7a5a9bdc
-      internalID: -2125251286
+      spriteID: 971f3b6ff5c09bf449e0a9b1e042c142
+      internalID: -694801440
       vertices: []
       indices: 
       edges: []
@@ -159,8 +161,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      krilo babochka_0: -2049328406
-      krilo babochka_1: -2125251286
+      krilo korovka (3)_0: 188803283
+      krilo korovka (3)_1: -694801440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

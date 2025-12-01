@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4249db97a135ce49bf2c40c982caf30
+guid: 1d09eb33efc7362419ad7e86d8bdbba4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 75
+  spritePixelsToUnits: 85
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,59 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: krilo babochka_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 86
-        height: 125
-      alignment: 9
-      pivot: {x: 0.8638603, y: 0.21560474}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 18, y: -62.5}
-        - {x: -43, y: -62.5}
-        - {x: -43, y: 62.5}
-        - {x: 43, y: 62.5}
-        - {x: 43, y: -25.5}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45999406af64f274f9c75e4ff816cf44
-      internalID: -2049328406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: krilo babochka_1
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 0
-        width: 102
-        height: 121
-      alignment: 9
-      pivot: {x: 0.06591086, y: 0.50879633}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -51, y: -60.5}
-        - {x: -51, y: 8.5}
-        - {x: -13, y: 60.5}
-        - {x: 51, y: 60.5}
-        - {x: 51, y: -60.5}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d8f4e9fb3a14ae47a3cc9ca7a5a9bdc
-      internalID: -2125251286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,9 +106,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      krilo babochka_0: -2049328406
-      krilo babochka_1: -2125251286
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

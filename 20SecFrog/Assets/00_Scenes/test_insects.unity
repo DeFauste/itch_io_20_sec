@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950490cce2d5cc547a9dcabdc9633276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _insectType: 3
   _score: 0
   _speed: 1
   _frequencyY: 0.33
@@ -771,6 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9341d5d7cbb200c4abdd130b1381298c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _insectType: 0
   _score: 0
   _speed: 1
   _moveDuration: 1.5
@@ -1593,6 +1595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7bd765cc848c1408fd844619c37ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _insectType: 5
   _score: 0
   _speed: 1
   _moveDuration: 3
@@ -1866,6 +1869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72bb67060612cd45a33e3969c506fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _insectType: 4
   _score: 0
   _speed: 1
   _frequencyY: 0.5
@@ -2271,6 +2275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c79d7d10a6c32041a88514db65e7a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _insectType: 2
   _score: 0
   _speed: 1
   _moveDuration: 1.5
@@ -2421,6 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeb3080b46329240953125074ec7c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _insectType: 6
   _score: 0
   _speed: 1
   _frequencyY: 0.175

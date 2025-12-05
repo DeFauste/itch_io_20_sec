@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _insectType: 6
-  _score: 0
+  _score: 25
   _speed: 1
   _frequencyY: 0.175
   _jumpFrequency: 2

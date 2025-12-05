@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _insectType: 2
-  _score: 0
+  _score: 15
   _speed: 1
   _moveDuration: 1.5
   _movesCount: 20

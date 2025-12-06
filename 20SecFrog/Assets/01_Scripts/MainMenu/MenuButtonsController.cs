@@ -11,7 +11,7 @@ namespace MainMenu
 
         private void OnEnable()
         {
-            _startGameButton.onClick.AddListener(() => SceneManager.LoadScene("SampleScene",  LoadSceneMode.Single));
+            _startGameButton.onClick.AddListener(() => SceneManager.LoadScene("01_MainScene",  LoadSceneMode.Single));
             _exitGameButton.onClick.AddListener(() => Application.Quit());
         }
         private void Start()

@@ -616,10 +616,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a964db52f7541f5b3e0826fe8da62b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1780506459}
   radiusCapture: 0.67
   layerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 4294967295
   spitPrefab: {fileID: 1556177282}
   cursor: {fileID: 1380058034}
   AtiveteCursor: 1
@@ -649,7 +650,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 728889672}
-  - component: {fileID: 728889673}
   m_Layer: 0
   m_Name: MenuPause
   m_TagString: Untagged
@@ -672,21 +672,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1399616959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &728889673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728889671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9c70c1ae0643fc9ee39d83276c7a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restartGameButton: {fileID: 431936176}
-  exitGameButton: {fileID: 1365482598}
-  pauseMenu: {fileID: 161261125}
 --- !u!1 &765036496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3380304441811781532, guid: 0f0f70d0b884b39479b7652f97225823, type: 3}
@@ -885,7 +870,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2469880419541666518, guid: dad1aa9a9cd5a3c4eb67b84a6cac6ffa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 728889672}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9153762975320083072, guid: dad1aa9a9cd5a3c4eb67b84a6cac6ffa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1391053898}
   m_SourcePrefab: {fileID: 100100000, guid: dad1aa9a9cd5a3c4eb67b84a6cac6ffa, type: 3}
 --- !u!1 &1111356051
 GameObject:
@@ -1054,6 +1042,27 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7380290354714999703, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
   m_PrefabInstance: {fileID: 5463452115251382387}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1391053896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153762975320083072, guid: dad1aa9a9cd5a3c4eb67b84a6cac6ffa, type: 3}
+  m_PrefabInstance: {fileID: 1049769827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1391053898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391053896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9c70c1ae0643fc9ee39d83276c7a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartGameButton: {fileID: 431936176}
+  exitGameButton: {fileID: 1365482598}
+  pauseMenu: {fileID: 161261125}
+  insectCapture: {fileID: 578895754}
 --- !u!4 &1399616959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2469880419541666518, guid: dad1aa9a9cd5a3c4eb67b84a6cac6ffa, type: 3}
@@ -1293,6 +1302,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e621b2a467b527b4e891ef1cb0a0e961, type: 3}
+--- !u!114 &1780506459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3165584048691187443, guid: dad1aa9a9cd5a3c4eb67b84a6cac6ffa, type: 3}
+  m_PrefabInstance: {fileID: 1049769827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fff1d9e8157764f8653e80a44c8e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1933296847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7632816658718931999, guid: 227886db1747bc14fa70633f19233101, type: 3}

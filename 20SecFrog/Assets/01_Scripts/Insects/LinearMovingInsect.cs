@@ -33,7 +33,7 @@ public class LinearMovingInsect : InsectBase
         StartCoroutine(Move());
     }
 
-    protected IEnumerator Move()
+    private IEnumerator Move()
     {
         //первый влет на экран
         //_newScale = Vector3.one * _scaleMultiplier;

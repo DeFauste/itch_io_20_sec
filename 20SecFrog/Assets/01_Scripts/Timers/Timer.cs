@@ -47,6 +47,7 @@ namespace _01_Scripts.Timer
             if (!startCorutine)
             {
                 startCorutine = true;
+                Debug.Log("Starting Timer");
                 coroutine = StartCoroutine(StartTimer(timeMax));
             }
         }

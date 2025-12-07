@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using AYellowpaper.SerializedCollections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _01_Scripts.Frogs
@@ -19,7 +20,10 @@ namespace _01_Scripts.Frogs
 
         [SerializeField] private SpriteRenderer cursor;
         [SerializeField] private bool AtiveteCursor = false;
-
+        
+        [Header("Диалоги персонажей")] [Tooltip("Записываем все диалоги для персонажей")]
+        [SerializeField] private SerializedDictionary<InsectType, GameObject> listInsectDead = new();
+        
         private void Start()
         {
             gizmosPoint = gameObject.transform.position;
@@ -32,7 +36,6 @@ namespace _01_Scripts.Frogs
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 var insect = DetectInArea2D<InsectBase>(mousePosition, radiusCapture, layerMask);
-                Debug.Log("Получил " + insect.Count);
                 SpawnSpit(mousePosition);
                 DestroyInsects(insect);
             }
@@ -66,9 +69,6 @@ namespace _01_Scripts.Frogs
 
         public static List<T> DetectInArea2D<T>(Vector2 pointOverlap, float radius, LayerMask mask)
         {
-            var count = Physics2D.OverlapCircleAll(pointOverlap, radius, mask);
-                Debug.Log("изначанльно " + count.Length);
-            
             return Physics2D.OverlapCircleAll(pointOverlap, radius, mask)
                 .Where(i => i.GetComponent<T>() is not null)
                 .Select(x => x.GetComponent<T>()).ToList();
@@ -78,12 +78,17 @@ namespace _01_Scripts.Frogs
         private void DestroyInsects(List<InsectBase> insects)
         {
             foreach (var insect in insects)
-            {
+            {      
+                var objInsect = Instantiate(listInsectDead[insect.GetInsectType()],  insect.transform.position, Quaternion.identity);
+                DestroyAfterTime(objInsect,2);
                 score.AddScore(insect.GetScore());
                 insect.gameObject.SetActive(false);
             }
         }
-
+        public void DestroyAfterTime(GameObject obj, float timeSeconds)
+        {
+            Destroy(obj, timeSeconds);
+        }
         private Vector2 GetMousePosition()
         {
             Vector3 screenPos = Input.mousePosition;

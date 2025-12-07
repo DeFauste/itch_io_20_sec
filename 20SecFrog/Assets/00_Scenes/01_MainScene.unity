@@ -563,6 +563,22 @@ MonoBehaviour:
   spitPrefab: {fileID: 7086791578308605962, guid: c288fda70081f6d44ae4ec34aa4bb45c, type: 3}
   cursor: {fileID: 365991292}
   AtiveteCursor: 0
+  listInsectDead:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 5135667993037832053, guid: 20509b6d925edb64e9898b6b9a7aa505, type: 3}
+    - Key: 1
+      Value: {fileID: 2292142553814564376, guid: c72f0bbf17382e245b7221dfe4ae0390, type: 3}
+    - Key: 2
+      Value: {fileID: 3191495074473465367, guid: 903c8115b97e6b94490d658d371f015b, type: 3}
+    - Key: 3
+      Value: {fileID: 1475651666599004469, guid: 2b90bc1cdf1c4194b868798c92a974a8, type: 3}
+    - Key: 4
+      Value: {fileID: 2109113210517570611, guid: 814436c209f7bbe43b2f091e23a31de0, type: 3}
+    - Key: 5
+      Value: {fileID: 4636318768299750223, guid: 346421cd241a0eb498a0d8a5459d2026, type: 3}
+    - Key: 6
+      Value: {fileID: 3246481931136989606, guid: 67c2701e064dbba459a192c9084c6387, type: 3}
 --- !u!1 &417556788
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +783,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: SCORE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7e80074d0a076584caa7255e2263b244, type: 2}
   m_sharedMaterial: {fileID: -1212818222020162226, guid: de45515504fa7414199aa46f198a24d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -775,7 +791,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.19607843, g: 0.043137256, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -792,8 +808,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1557,7 +1573,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: TIMER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7e80074d0a076584caa7255e2263b244, type: 2}
   m_sharedMaterial: {fileID: -1212818222020162226, guid: de45515504fa7414199aa46f198a24d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1565,7 +1581,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.19607843, g: 0.043137256, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1582,8 +1598,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1985,6 +2001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1798453509}
+  - component: {fileID: 1798453510}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -2007,6 +2024,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1748240661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1798453510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798453508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a9139a8eb54b849df4db7f7d594222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerGame: {fileID: 417556790}
+  menu: {fileID: 1559592615}
 --- !u!4 &1933296847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7632816658718931999, guid: 227886db1747bc14fa70633f19233101, type: 3}
@@ -2145,7 +2176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9157105829859344562, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1736.8768
+      value: -1749.06
       objectReference: {fileID: 0}
     - target: {fileID: 9157105829859344562, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_LocalPosition.y

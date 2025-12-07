@@ -18,10 +18,10 @@ public class PatrolingInsect : InsectBase
     [SerializeField] private Vector3 _moveMaxLimit = new(9f, 4f, 0f);
     [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected float _suicideRadius = 12f;
-    private GameState GameState;
+    private GameState gameState;
     private void Start()
     {
-        GameState =  GameState.Instance;
+        gameState =  GameState.Instance;
         _moveDuration /= _speed;
         _patrolDuration /= _speed;
         StartCoroutine(Move());
@@ -33,8 +33,9 @@ public class PatrolingInsect : InsectBase
         int movesCount = 0;
         while (movesCount < _movesCount)
         {
-            while (GameState.Paused)
+            while (gameState.Paused)
                 yield return null;
+            
             Vector3 endPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
             yield return MoveTo(endPoint, _moveDuration);
 
@@ -62,6 +63,9 @@ public class PatrolingInsect : InsectBase
 
     private IEnumerator MoveTo(Vector3 endPoint, float duration)
     {
+        while (gameState.Paused)
+            yield return null;
+        
         Vector3 startPoint = transform.position;
         int rotation = endPoint.x > startPoint.x ? 0 : 180;
         transform.rotation = Quaternion.Euler(0f, rotation, 0f);

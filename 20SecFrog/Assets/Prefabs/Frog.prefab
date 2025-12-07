@@ -134,13 +134,13 @@ MonoBehaviour:
   tongueOrigin: {fileID: 8092854325445000905}
   tongueTip: {fileID: 0}
   mouth: {fileID: 7850217588246939963}
-  ropeSegments: 15
-  segmentLength: 0.1
-  tongueSpeed: 20
-  retractSpeed: 15
-  gravity: 1
+  ropeSegments: 40
+  segmentLength: 0.2
+  tongueSpeed: 30
+  retractSpeed: 50
+  gravity: 0.9
   damping: 0.95
-  physicsIterations: 3
+  physicsIterations: 6
   tongueTipAliveTimeSec: 0.1
   tongueCooldownTimeSec: 0.1
   tongueLineRenderer: {fileID: 0}
@@ -148,7 +148,7 @@ MonoBehaviour:
   tongueTexture: {fileID: 0}
   tongueBaseColor: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
   endRoundness: 0.1
-  tongueWidth: 0.5
+  tongueWidth: 1
 --- !u!1 &4955774385945303481
 GameObject:
   m_ObjectHideFlags: 0

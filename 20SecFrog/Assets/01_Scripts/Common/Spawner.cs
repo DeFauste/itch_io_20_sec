@@ -18,6 +18,11 @@ public class Spawner : MonoBehaviour
     
     void Start()
     {
+
+    }
+
+    public void StartSpawning()
+    {
         SetRotation();
         StartCoroutine(Spawn());
     }

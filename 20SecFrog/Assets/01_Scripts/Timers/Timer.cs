@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
+using MainMenu;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 namespace _01_Scripts.Timer
@@ -13,15 +13,22 @@ namespace _01_Scripts.Timer
     {
         // Время с которого будет идти отсчёт времени
         [SerializeField] private int timeMax = 20;
+
         // Скорость с которой будет изменяться значение таймера
         [SerializeField] private float timerSpeedChange = 0.1f;
+
         // Ссылка на UI для вывода значения таймера
         [SerializeField] private TextMeshProUGUI timerText;
+
         // Округление значение таймера
         [SerializeField] private int roundTimer = 3;
-        
+
         // Время для таймера
         public double TimerValue { get; private set; }
+        private bool isPaused = true;
+
+        public void PauseTimer() => isPaused = true;
+        public void ResumeTimer() => isPaused = false;
 
         // Включеа ли уже коротина
         private bool startCorutine = false;
@@ -31,7 +38,7 @@ namespace _01_Scripts.Timer
 
         private void Start()
         {
-            TimerValue =  timeMax;
+            TimerValue = timeMax;
         }
 
         private void Update()
@@ -49,6 +56,7 @@ namespace _01_Scripts.Timer
                 startCorutine = true;
                 Debug.Log("Starting Timer");
                 coroutine = StartCoroutine(StartTimer(timeMax));
+                ResumeTimer();
             }
         }
 
@@ -56,17 +64,19 @@ namespace _01_Scripts.Timer
         {
             TimerValue = seconds;
             float time = seconds;
-
             while (time > 0 && startCorutine)
             {
-                yield return new WaitForSeconds(timerSpeedChange);
-                time -= timerSpeedChange ;
-                TimerValue = Math.Round(time, roundTimer);
+                yield return isPaused ? null : new WaitForSeconds(timerSpeedChange);
+                if (isPaused == false)
+                {
+                    time -= timerSpeedChange;
+                    TimerValue = Math.Round(time, roundTimer);
+                }
             }
 
             startCorutine = false;
         }
-
+        
         public void StopTimer()
         {
             if (coroutine != null)

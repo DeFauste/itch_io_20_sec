@@ -20,17 +20,20 @@ namespace MainMenu
         [SerializeField] private Button playGameButton;
         [SerializeField] private Button quitGameButton;
         bool isPaused = true;
-        public bool Paused => isPaused; 
+        private bool blockerMenu = false; // блокируем объюз меню
+
+        public bool Paused => isPaused;
         // Меню
-        
+
         // Таймер и очки
         [SerializeField] private Timer timerGame;
         [SerializeField] GameObject timerObject;
         [SerializeField] GameObject scoreObject;
         //
-        
+
         [SerializeField] private InsectCapture insectCapture;
         [SerializeField] private List<Spawner> spawners = new List<Spawner>();
+
         private void OnEnable()
         {
             playGameButton.onClick.AddListener(() => StartGame());
@@ -57,8 +60,9 @@ namespace MainMenu
 
         public void PauseGame()
         {
-            if (!isPaused)
+            if (!blockerMenu && !isPaused)
             {
+                blockerMenu = true;
                 isPaused = true;
                 insectCapture.DeactiveCursor();
                 MoveToPoint(logo, -1000, 1000);
@@ -66,23 +70,30 @@ namespace MainMenu
                 MoveToPoint(playQuit, 1000, 1000);
                 timerObject?.SetActive(false);
                 scoreObject?.SetActive(false);
+                timerGame.PauseTimer();
             }
         }
 
         private void StartGame()
         {
-            if (isPaused)
+            if (!blockerMenu && isPaused)
             {
+                blockerMenu = true;
                 isPaused = false;
                 Time.timeScale = 1;
                 insectCapture.ActiveCursor();
-                StartSpawners();
+                if (timerGame.TimerValue >= 19)
+                {
+                    StartSpawners();
+                }
+
                 MoveToPoint(logo, 1000, 1000);
                 MoveToPoint(buttomQuit, -1000, 1000);
                 MoveToPoint(playQuit, -1000, 1000);
                 timerGame?.SartTimer();
                 timerObject?.SetActive(true);
                 scoreObject?.SetActive(true);
+                timerGame?.ResumeTimer();
             }
         }
 
@@ -90,14 +101,15 @@ namespace MainMenu
         {
             foreach (var spawner in spawners)
             {
-               spawner.StartSpawning(); 
+                spawner.StartSpawning();
             }
         }
-        
+
         public void MoveToPoint(RectTransform uiElement, float distance = 1000f, float speed = 200)
         {
             StartCoroutine(MoveUpSmooth(uiElement, distance, speed));
         }
+
         public IEnumerator MoveUpSmooth(RectTransform img, float distance = 1000f, float speed = 200f)
         {
             Vector2 target = img.anchoredPosition + new Vector2(0, distance);
@@ -112,6 +124,7 @@ namespace MainMenu
                 yield return null;
             }
 
+            blockerMenu = false;
             img.anchoredPosition = target;
         }
     }

@@ -1,4 +1,5 @@
 using System.Collections;
+using MainMenu;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,12 +9,14 @@ public class MayBug : InsectBase
     [SerializeField] private float _offsetY;
     [SerializeField] private float _radius;
     [SerializeField] private float _sideSpeedMultiplier; 
+    private GameState gameState;
 
     private float _direction;
     private Vector3 _center;
 
     private void Start()
     {
+        gameState = GameState.Instance;
         SetDirection();
         //transform.localScale = Vector3.one * Random.Range(0.8f, 1.2f);
         _center = transform.position;
@@ -32,6 +35,9 @@ public class MayBug : InsectBase
 
         while (true)
         {
+            while (gameState.Paused)
+                yield return null;
+            
             angle += Time.deltaTime * 2 * Mathf.PI * _speed;
 
             float y = Mathf.Sin(angle * _frequencyY) * _radius * _offsetY;

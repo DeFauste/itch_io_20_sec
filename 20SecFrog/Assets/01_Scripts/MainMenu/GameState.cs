@@ -1,4 +1,5 @@
-﻿using _01_Scripts.Common;
+﻿using System;
+using _01_Scripts.Common;
 using _01_Scripts.Timer;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace MainMenu
     {
         [SerializeField] public Timer timerGame;
         [SerializeField] public MenuPause menu;
+
         public bool Paused => menu.Paused;
         private void Update()
         {

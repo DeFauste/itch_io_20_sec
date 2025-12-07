@@ -1,4 +1,5 @@
 using System.Collections;
+using MainMenu;
 using UnityEngine;
 
 public class LinearMovingInsect : InsectBase
@@ -15,6 +16,7 @@ public class LinearMovingInsect : InsectBase
     [SerializeField] protected Vector3 _moveMaxLimit = new(9f, 4f, 0f);
     [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected float _suicideRadius = 12f;
+    private GameState gameState;
 
     //protected Vector3 _currentScale;
     //protected Vector3 _newScale;
@@ -25,6 +27,7 @@ public class LinearMovingInsect : InsectBase
     
     protected virtual void Start()
     {
+        gameState = GameState.Instance;
         _moveDuration /= _speed;
         
         //_currentScale = transform.localScale;
@@ -44,6 +47,9 @@ public class LinearMovingInsect : InsectBase
         int movesCount = 0;
         while (movesCount < _movesCount)
         {
+            while (gameState.Paused)
+                yield return null;
+            
             Vector3 endPoint = GetRandomPointInRange(_screenMoveMin, _screenMoveMax);
             yield return MoveTo(endPoint, _moveDuration);
 
@@ -64,6 +70,9 @@ public class LinearMovingInsect : InsectBase
 
     private IEnumerator MoveTo(Vector3 endPoint, float duration)
     {
+        while (gameState.Paused)
+            yield return null;
+        
         Vector3 startPoint = transform.position;
         int rotation = endPoint.x > startPoint.x ? 0 : 180;
         transform.rotation = Quaternion.Euler(0f, rotation, 0f);

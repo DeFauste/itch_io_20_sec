@@ -20,7 +20,7 @@ namespace MainMenu
         [SerializeField] private Button playGameButton;
         [SerializeField] private Button quitGameButton;
         bool isPaused = true;
-        
+        public bool Paused => isPaused; 
         // Меню
         
         // Таймер и очки
@@ -52,7 +52,7 @@ namespace MainMenu
 
         public void ExitGame()
         {
-            SceneManager.LoadScene("00_MainMenu");
+            Application.Quit();
         }
 
         public void PauseGame()
@@ -75,7 +75,6 @@ namespace MainMenu
             {
                 isPaused = false;
                 Time.timeScale = 1;
-                // прикрутить старт спвна и всего движения 
                 insectCapture.ActiveCursor();
                 StartSpawners();
                 MoveToPoint(logo, 1000, 1000);

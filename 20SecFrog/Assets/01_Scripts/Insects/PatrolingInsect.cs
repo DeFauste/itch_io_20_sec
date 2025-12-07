@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MainMenu;
 using UnityEngine;
 
 public class PatrolingInsect : InsectBase
@@ -17,9 +18,10 @@ public class PatrolingInsect : InsectBase
     [SerializeField] private Vector3 _moveMaxLimit = new(9f, 4f, 0f);
     [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected float _suicideRadius = 12f;
-
+    private GameState GameState;
     private void Start()
     {
+        GameState =  GameState.Instance;
         _moveDuration /= _speed;
         _patrolDuration /= _speed;
         StartCoroutine(Move());
@@ -31,6 +33,8 @@ public class PatrolingInsect : InsectBase
         int movesCount = 0;
         while (movesCount < _movesCount)
         {
+            while (GameState.Paused)
+                yield return null;
             Vector3 endPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
             yield return MoveTo(endPoint, _moveDuration);
 

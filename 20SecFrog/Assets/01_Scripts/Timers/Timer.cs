@@ -38,7 +38,7 @@ namespace _01_Scripts.Timer
         {
             if (timerText is not null)
             {
-                timerText.text = $"{TimerValue} s";
+                timerText.text = $"{TimerValue}";
             }
         }
 

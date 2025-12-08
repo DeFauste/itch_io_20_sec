@@ -15,12 +15,12 @@ namespace _01_Scripts.Effects
         {
         }
 
-        public void StartTrip()
+        public void StartTrip(Action callback = null)
         {
-            StartCoroutine(Rotation());
+            StartCoroutine(Rotation(callback));
         }
 
-        private IEnumerator Rotation()
+        private IEnumerator Rotation(Action callback = null)
         {
             float time = 0;
             while (time <= TimeTrip)
@@ -31,6 +31,7 @@ namespace _01_Scripts.Effects
                 targetAngle += rotationSpeed;
                 time += SpeedRound;
             }
+            callback?.Invoke();
         }
         
     }

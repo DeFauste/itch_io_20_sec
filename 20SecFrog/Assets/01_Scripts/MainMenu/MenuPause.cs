@@ -24,7 +24,7 @@ namespace MainMenu
 
         public bool Paused => isPaused;
         // Меню
-
+        
         // Таймер и очки
         [SerializeField] private Timer timerGame;
         [SerializeField] GameObject timerObject;

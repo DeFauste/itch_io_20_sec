@@ -29,7 +29,8 @@ namespace _01_Scripts.Timer
 
         public void PauseTimer() => isPaused = true;
         public void ResumeTimer() => isPaused = false;
-
+        public void ResetTimer() => TimerValue = timeMax;
+        
         // Включеа ли уже коротина
         private bool startCorutine = false;
 

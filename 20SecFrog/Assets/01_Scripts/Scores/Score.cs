@@ -8,7 +8,8 @@ namespace _01_Scripts.Score
         // Ссылка на UI для вывода очков счёта
         [SerializeField] private TextMeshProUGUI scoreText;
         private double scoreValue = 0d;
-
+        public double ScoreValue => scoreValue;
+        public void ResetScore() => scoreValue = 0;
         public void Add()
         {
             AddScore(100);

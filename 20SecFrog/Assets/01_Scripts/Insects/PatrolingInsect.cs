@@ -35,7 +35,7 @@ public class PatrolingInsect : InsectBase
         {
             while (gameState.Paused)
                 yield return null;
-            
+
             Vector3 endPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
             yield return MoveTo(endPoint, _moveDuration);
 

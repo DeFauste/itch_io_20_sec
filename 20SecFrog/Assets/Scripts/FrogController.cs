@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _01_Scripts.Frogs;
 using UnityEngine;
 
 public class FrogController : MonoBehaviour
@@ -51,7 +52,9 @@ public class FrogController : MonoBehaviour
     private bool coolingDown = false;
     private Vector3 mousePointWorldSpace = Vector3.zero;
     private RectTransform tongueTipTransform;
-
+    
+    [SerializeField] private InsectCapture insectCapture;
+    
     private class RopeSegment
     {
         public Vector3 posNow;

@@ -31,18 +31,21 @@ public class Ladybug : InsectBase
     private IEnumerator Move()
     {
         float angle = Random.Range(0f, 2 * Mathf.PI);
-
+        var speedUpdate = _speed;
+        
         while (true)
         {
             while (gameState.Paused)
                 yield return null;
             
-            angle += Time.deltaTime * 2 * Mathf.PI * _speed;
+            speedUpdate = _speed * gameState.GetGlobalSpeed();
+            
+            angle += Time.deltaTime * 2 * Mathf.PI * speedUpdate;
 
             float y = Mathf.Sin(angle * _frequencyY) * _radius * _offsetY;
             Vector3 newPosition = new Vector3(0f, y, 0f);
             transform.position = _center + newPosition;
-            _center += new Vector3(_speed * _sideSpeedMultiplier * _direction, 0f, 0f) * Time.deltaTime;
+            _center += new Vector3(speedUpdate * _sideSpeedMultiplier * _direction, 0f, 0f) * Time.deltaTime;
 
             if (Mathf.Abs(transform.position.x) > 15f || Mathf.Abs(transform.position.y) > 15f)
             {

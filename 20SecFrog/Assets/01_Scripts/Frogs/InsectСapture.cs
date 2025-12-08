@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using _01_Scripts.Effects;
 using AYellowpaper.SerializedCollections;
-using Unity.VisualScripting;
+using MainMenu;
 using UnityEngine;
 
 namespace _01_Scripts.Frogs
@@ -19,13 +22,19 @@ namespace _01_Scripts.Frogs
 
 
         [SerializeField] private SpriteRenderer cursor;
-        [SerializeField] private bool AtiveteCursor = false;
+        [SerializeField] public bool AtiveteCursor = false;
+        public int CursorReverse = 1; // инвертирование прицела
         
-        [Header("Диалоги персонажей")] [Tooltip("Записываем все диалоги для персонажей")]
+        [Header("Трупы насекомых")] [Tooltip("Записываем все трупы под тип")]
         [SerializeField] private SerializedDictionary<InsectType, GameObject> listInsectDead = new();
-        
+        private GameState  gameState;
+        // Дебафы
+        [SerializeField] private Trip trip;
+        private bool isActiveSpeedEffect = false; // активировано уже замедление или нет
+        // Дебафы
         private void Start()
         {
+            gameState = GameState.Instance;
             gizmosPoint = gameObject.transform.position;
         }
 
@@ -43,17 +52,30 @@ namespace _01_Scripts.Frogs
             CursorMoved(mousePosition);
         }
 
-        public Vector2 Position => cursor.transform.position;
+        public Vector2 PositionCursor => cursor.transform.position;
 
         private void CursorMoved(Vector2 position)
         {
             
             if (cursor is not null)
             {
-                cursor.gameObject.transform.position = position;
+                cursor.gameObject.transform.position = position * CursorReverse;
             }
         }
-        
+
+        public void ActiveReverseCursor()
+        {
+            trip.gameObject.SetActive(true);
+            trip.StartTrip(DeactiveReverseCursor);
+            CursorReverse *= -1;
+        }
+
+        public void DeactiveReverseCursor()
+        {
+            trip.gameObject.SetActive(false);
+            CursorReverse = 1;
+        }
+
         public void ActiveCursor()
         {
             // Выключаем курсор компа
@@ -80,11 +102,67 @@ namespace _01_Scripts.Frogs
             foreach (var insect in insects)
             {      
                 var objInsect = Instantiate(listInsectDead[insect.GetInsectType()],  insect.transform.position, Quaternion.identity);
+                Effects(insect.GetInsectType());
                 DestroyAfterTime(objInsect,2);
                 score.AddScore(insect.GetScore());
                 insect.gameObject.SetActive(false);
             }
         }
+
+        private void Effects(InsectType type)
+        {
+            switch (type)
+            {
+                case InsectType.Mosquito:
+                    break;
+                case InsectType.Fly:
+                    break;
+                case InsectType.Dragonfly:
+                    break;
+                case InsectType.Maybug:
+                    break;
+                case InsectType.Ladybug:
+                    SpeedEffect();
+                    break;
+                case InsectType.Wasp:
+                    break;
+                case InsectType.Butterfly:
+                    ActiveReverseCursor();
+                    break;
+            }
+        }
+
+        private void SpeedEffect()
+        {
+            if (!isActiveSpeedEffect)
+            {
+                gameState.SetSpeedInsectPercent(0.5f);
+                TimerDisableEffect(2,() =>
+                {
+                    gameState.ResetSpeedInsectPercent();
+                    isActiveSpeedEffect = false;
+                });
+                isActiveSpeedEffect = true;
+            }
+        }
+        
+        private void TimerDisableEffect(int seconds, Action  action)
+        {
+            StartCoroutine(StartTimer(seconds, action));
+        }
+        
+        private IEnumerator StartTimer(int seconds, Action action)
+        {
+            float time = seconds;
+            while (time > 0)
+            {
+                yield return new WaitForSeconds(1);
+
+                    time -= 1;
+            }
+            action?.Invoke();
+        }
+        
         public void DestroyAfterTime(GameObject obj, float timeSeconds)
         {
             Destroy(obj, timeSeconds);

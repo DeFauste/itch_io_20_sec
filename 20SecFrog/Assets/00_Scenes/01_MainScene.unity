@@ -1576,11 +1576,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 913073026469443320, guid: 39afb1a3d7df2c544a8b6b6d687a57b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3817368
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 913073026469443320, guid: 39afb1a3d7df2c544a8b6b6d687a57b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.4054055
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 913073026469443320, guid: 39afb1a3d7df2c544a8b6b6d687a57b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1617,6 +1617,10 @@ PrefabInstance:
     - target: {fileID: 4812311769999828085, guid: 39afb1a3d7df2c544a8b6b6d687a57b7, type: 3}
       propertyPath: m_Name
       value: aim
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812311769999828085, guid: 39afb1a3d7df2c544a8b6b6d687a57b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8133471051310780534, guid: 39afb1a3d7df2c544a8b6b6d687a57b7, type: 3}
       propertyPath: m_Sprite
@@ -2230,7 +2234,7 @@ Transform:
   m_GameObject: {fileID: 1748240660}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1736.5768, y: 411.48236, z: -9.3957205}
+  m_LocalPosition: {x: 11, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2486,15 +2490,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9157105829859344562, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1749.06
+      value: -22.66
       objectReference: {fileID: 0}
     - target: {fileID: 9157105829859344562, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -411.94235
+      value: -11.3
       objectReference: {fileID: 0}
     - target: {fileID: 9157105829859344562, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.3957205
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9157105829859344562, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2762,6 +2766,10 @@ PrefabInstance:
       propertyPath: tongueTip
       value: 
       objectReference: {fileID: 765036496}
+    - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
+      propertyPath: _eyeTarget
+      value: 
+      objectReference: {fileID: 365991293}
     - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
       propertyPath: insectCapture
       value: 

@@ -79,8 +79,7 @@ public class FrogController : MonoBehaviour
     private Vector2 leftEyeOriginalPos;
     private Vector2 rightEyeOriginalPos;
 
-    private Vector2 leftEyeTargetPos;
-    private Vector2 rightEyeTargetPos;
+    [SerializeField] private Transform _eyeTarget;
 
     void Start()
     {
@@ -134,8 +133,7 @@ public class FrogController : MonoBehaviour
         leftEyeOriginalPos = leftEye.anchoredPosition;
         rightEyeOriginalPos = rightEye.anchoredPosition;
 
-        leftEyeTargetPos = leftEyeOriginalPos;
-        rightEyeTargetPos = rightEyeOriginalPos;
+        
 
         // Init line renderer
         if (tongueLineRenderer == null)
@@ -199,14 +197,14 @@ public class FrogController : MonoBehaviour
         );
     }
 
-    void UpdateEyePosition(RectTransform eye, Vector2 originalPos, ref Vector2 targetPos)
+    void UpdateEyePosition(RectTransform eye, Vector2 originalPos)
     {
-        Vector2 mouseScreenPosition = Input.mousePosition;
+        Vector2 aimPosition = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, _eyeTarget.position);
         Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, eye.position);
-        Vector2 direction = (mouseScreenPosition - screenPosition).normalized;
-
-        targetPos = originalPos + direction * maxEyeMovement;
-        eye.anchoredPosition = Vector2.MoveTowards(eye.anchoredPosition, targetPos, smoothSpeed);
+        Vector2 direction = (aimPosition - screenPosition).normalized;
+        
+        var targetPosition = originalPos + direction * maxEyeMovement;
+        eye.anchoredPosition = Vector2.MoveTowards(eye.anchoredPosition, targetPosition, smoothSpeed);
     }
 
     void Update()
@@ -226,12 +224,12 @@ public class FrogController : MonoBehaviour
 
         if (leftEye != null)
         {
-            UpdateEyePosition(leftEye, leftEyeOriginalPos, ref leftEyeTargetPos);
+            UpdateEyePosition(leftEye, leftEyeOriginalPos);
         }
 
         if (rightEye != null)
         {
-            UpdateEyePosition(rightEye, rightEyeOriginalPos, ref rightEyeTargetPos);
+            UpdateEyePosition(rightEye, rightEyeOriginalPos);
         }
     }
 

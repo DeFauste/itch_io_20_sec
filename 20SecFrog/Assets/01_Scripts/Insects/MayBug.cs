@@ -18,7 +18,6 @@ public class MayBug : InsectBase
     {
         gameState = GameState.Instance;
         SetDirection();
-        //transform.localScale = Vector3.one * Random.Range(0.8f, 1.2f);
         _center = transform.position;
 
         StartCoroutine(Move());

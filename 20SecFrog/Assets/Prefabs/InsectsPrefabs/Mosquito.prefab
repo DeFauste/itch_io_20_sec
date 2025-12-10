@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8544036106868882921}
   - component: {fileID: 4619870774055983751}
-  - component: {fileID: 701535131059422743}
   - component: {fileID: 3813278507572829281}
+  - component: {fileID: 764996761058934108}
   m_Layer: 0
   m_Name: Mosquito
   m_TagString: Untagged
@@ -142,70 +142,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &701535131059422743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4173257199052408654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9341d5d7cbb200c4abdd130b1381298c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _insectType: 0
-  _score: 3
-  _speed: 1
-  _moveDuration: 1.5
-  _movesCount: 8
-  _firstMoveDuration: 2
-  _curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.088166155
-      value: 0.039801296
-      inSlope: 0.66463494
-      outSlope: 0.66463494
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8728879
-      value: 0.92137736
-      inSlope: 0.9495537
-      outSlope: 0.9495537
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _moveMinLimit: {x: -9, y: -3, z: 0}
-  _moveMaxLimit: {x: 9, y: 4, z: 0}
-  _suicideTime: 2
-  _suicideRadius: 12
 --- !u!61 &3813278507572829281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -249,8 +185,54 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.75}
+  m_Size: {x: 0.9, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &764996761058934108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173257199052408654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5e686f01248894088003dd26a9de76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _insectType: 0
+  _score: 3
+  _speed: 1
+  _moveDuration: 1.5
+  _movesCount: 5
+  _firstMoveDuration: 2
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _moveMinLimit: {x: -8, y: -3, z: 0}
+  _moveMaxLimit: {x: 8, y: 4, z: 0}
+  _suicideTime: 2
+  _suicideRadius: 12
 --- !u!1 &6032256038050478797
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 6032256038050478797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.17364825, w: 0.9848078}
-  m_LocalPosition: {x: 0.047, y: 0.141, z: 0.066260874}
+  m_LocalPosition: {x: 0.047, y: 0.12, z: 0.066260874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,7 +307,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_Sprite: {fileID: 1590386347, guid: 4dfabd567c6850f48b740b855cd70729, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.29411766}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -361,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 7982788276549314495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.21643952, w: 0.97629607}
-  m_LocalPosition: {x: 0.005, y: 0.154, z: 0.066260874}
+  m_LocalPosition: {x: 0.005, y: 0.109, z: 0.066260874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,7 +391,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 11
   m_Sprite: {fileID: 967916719, guid: 4dfabd567c6850f48b740b855cd70729, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.29411766}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

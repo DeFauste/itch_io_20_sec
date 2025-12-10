@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3532422025459451529}
-  - component: {fileID: 2887275745209674405}
   - component: {fileID: 3833642751445909348}
   - component: {fileID: 9102957604680591643}
+  - component: {fileID: 8255614258949693179}
   m_Layer: 0
   m_Name: Dragonfly
   m_TagString: Untagged
@@ -29,69 +29,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.55, y: 2.71, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1601878689102271043}
   - {fileID: 6759840628042813472}
   - {fileID: 688418154032084933}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2887275745209674405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2682654079949499613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c79d7d10a6c32041a88514db65e7a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _insectType: 2
-  _score: 15
-  _speed: 1
-  _moveDuration: 1.5
-  _movesCount: 20
-  _firstMoveDuration: 2
-  _curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.39062813
-      value: 0.7389656
-      inSlope: 1.3987439
-      outSlope: 1.3987439
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _moveMinLimit: {x: -9, y: -3, z: 0}
-  _moveMaxLimit: {x: 9, y: 4, z: 0}
-  _suicideTime: 2
-  _suicideRadius: 12
 --- !u!95 &3833642751445909348
 Animator:
   serializedVersion: 5
@@ -148,6 +93,52 @@ CircleCollider2D:
   m_Offset: {x: -0.4, y: 0}
   serializedVersion: 2
   m_Radius: 1.15
+--- !u!114 &8255614258949693179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2682654079949499613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5e686f01248894088003dd26a9de76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _insectType: 2
+  _score: 15
+  _speed: 1
+  _moveDuration: 1
+  _movesCount: 2
+  _firstMoveDuration: 0.75
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _moveMinLimit: {x: -8, y: -2.5, z: 0}
+  _moveMaxLimit: {x: 8, y: 4, z: 0}
+  _suicideTime: 2
+  _suicideRadius: 12
 --- !u!1 &7149463927179566624
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +213,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 27
   m_Sprite: {fileID: -179501245, guid: cdaaa1185297e864db1eed8ef44c4a80, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -390,7 +381,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 27
   m_Sprite: {fileID: 1839444009, guid: cdaaa1185297e864db1eed8ef44c4a80, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

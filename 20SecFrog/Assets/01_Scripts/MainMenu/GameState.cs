@@ -23,7 +23,7 @@ namespace MainMenu
         public void ResetSpeedInsectPercent() => speedInsectPercent = 1;
         private void Update()
         {
-            if (timerGame?.TimerValue <= 0)
+            if (timerGame?.TimerValue < 0)
             {
                 timerGame?.ResumeTimer();
                 timerGame?.ResetTimer();

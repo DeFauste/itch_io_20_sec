@@ -325,8 +325,8 @@ MonoBehaviour:
   _insectType: 5
   _score: 0
   _speed: 1
-  _moveDuration: 3
-  _movesCount: 8
+  _moveDuration: 2
+  _movesCount: 1
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -353,9 +353,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   _patrolLimits: {x: 1, y: 1, z: 0}
   _patrolDuration: 0.5
-  _patrolCount: 4
-  _moveMinLimit: {x: -9, y: -3, z: 0}
-  _moveMaxLimit: {x: 9, y: 4, z: 0}
+  _patrolCount: 3
+  _moveMinLimit: {x: -8, y: -2.5, z: 0}
+  _moveMaxLimit: {x: 8, y: 4, z: 0}
   _suicideTime: 2
   _suicideRadius: 12
 --- !u!58 &5665347015760830399

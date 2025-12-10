@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 12
   m_Sprite: {fileID: 265706858, guid: 920d2fce0b3ca0e40afa732b5874556a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -241,8 +241,8 @@ MonoBehaviour:
   _insectType: 1
   _score: 5
   _speed: 1
-  _moveDuration: 3
-  _movesCount: 15
+  _moveDuration: 2
+  _movesCount: 3
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -269,9 +269,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   _patrolLimits: {x: 1, y: 1, z: 0}
   _patrolDuration: 0.5
-  _patrolCount: 4
-  _moveMinLimit: {x: -9, y: -3, z: 0}
-  _moveMaxLimit: {x: 9, y: 4, z: 0}
+  _patrolCount: 2
+  _moveMinLimit: {x: -8, y: -2, z: 0}
+  _moveMaxLimit: {x: 8, y: 4, z: 0}
   _suicideTime: 2
   _suicideRadius: 12
 --- !u!61 &3265880179551202428
@@ -317,7 +317,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6}
+  m_Size: {x: 1.3, y: 1.1}
   m_EdgeRadius: 0
 --- !u!1 &7212136483207149079
 GameObject:
@@ -393,7 +393,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 14
   m_Sprite: {fileID: -763935777, guid: 920d2fce0b3ca0e40afa732b5874556a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

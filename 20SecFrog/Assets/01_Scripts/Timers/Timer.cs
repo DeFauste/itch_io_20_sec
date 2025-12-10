@@ -12,16 +12,10 @@ namespace _01_Scripts.Timer
     public sealed class Timer : MonoBehaviour
     {
         // Время с которого будет идти отсчёт времени
-        [SerializeField] private int timeMax = 20;
-
-        // Скорость с которой будет изменяться значение таймера
-        [SerializeField] private float timerSpeedChange = 0.1f;
+        [SerializeField] private float timeMax = 20.9f;
 
         // Ссылка на UI для вывода значения таймера
         [SerializeField] private TextMeshProUGUI timerText;
-
-        // Округление значение таймера
-        [SerializeField] private int roundTimer = 3;
 
         // Время для таймера
         public double TimerValue { get; private set; }
@@ -30,7 +24,7 @@ namespace _01_Scripts.Timer
         public void PauseTimer() => isPaused = true;
         public void ResumeTimer() => isPaused = false;
         public void ResetTimer() => TimerValue = timeMax;
-        
+
         // Включеа ли уже коротина
         private bool startCorutine = false;
 
@@ -61,23 +55,25 @@ namespace _01_Scripts.Timer
             }
         }
 
-        private IEnumerator StartTimer(int seconds)
+        private IEnumerator StartTimer(float seconds)
         {
             TimerValue = seconds;
             float time = seconds;
-            while (time > 0 && startCorutine)
+            while (time > -1 && startCorutine)
             {
-                yield return isPaused ? null : new WaitForSeconds(timerSpeedChange);
-                if (isPaused == false)
+                if (isPaused)
                 {
-                    time -= timerSpeedChange;
-                    TimerValue = Math.Round(time, roundTimer);
+                    yield return null;
                 }
+
+                TimerValue = Math.Floor(time);
+                time -= Time.deltaTime;
+                yield return null;
             }
 
             startCorutine = false;
         }
-        
+
         public void StopTimer()
         {
             if (coroutine != null)

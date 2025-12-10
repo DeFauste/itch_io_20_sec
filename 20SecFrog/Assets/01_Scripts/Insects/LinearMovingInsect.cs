@@ -6,8 +6,6 @@ public class LinearMovingInsect : InsectBase
 {
     [SerializeField] protected float _moveDuration;
     [SerializeField] protected int _movesCount;
-    //[SerializeField] protected float _minScale;
-    //[SerializeField] protected float _maxScale;
     [SerializeField] protected float _firstMoveDuration;
     [SerializeField] protected AnimationCurve _curve;
 
@@ -17,29 +15,17 @@ public class LinearMovingInsect : InsectBase
     [SerializeField] protected float _suicideTime = 2f;
     [SerializeField] protected float _suicideRadius = 12f;
     private GameState gameState;
-
-    //protected Vector3 _currentScale;
-    //protected Vector3 _newScale;
-    //protected float _scaleMultiplier;
-
-    protected Vector3 _screenMoveMax;
-    protected Vector3 _screenMoveMin;
-    
+   
     protected virtual void Start()
     {
         gameState = GameState.Instance;
         _moveDuration /= _speed;
-        
-        //_currentScale = transform.localScale;
-        //_scaleMultiplier = Random.Range(_minScale, _maxScale);
-
         StartCoroutine(Move());
     }
 
     private IEnumerator Move()
     {
         //первый влет на экран
-        //_newScale = Vector3.one * _scaleMultiplier;
         Vector3 firstPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
         yield return MoveTo(firstPoint, _firstMoveDuration);
 
@@ -50,7 +36,7 @@ public class LinearMovingInsect : InsectBase
             while (gameState.Paused)
                 yield return null;
             
-            Vector3 endPoint = GetRandomPointInRange(_screenMoveMin, _screenMoveMax);
+            Vector3 endPoint = GetRandomPointInRange(_moveMinLimit, _moveMaxLimit);
             yield return MoveTo(endPoint, _moveDuration);
 
             movesCount++;

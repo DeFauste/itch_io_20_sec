@@ -32,6 +32,9 @@ namespace _01_Scripts.Frogs
         [SerializeField] private Trip trip;
         private bool isActiveSpeedEffect = false; // активировано уже замедление или нет
         // Дебафы
+        
+        private Vector2 _mousePosition;
+        
         private void Start()
         {
             gameState = GameState.Instance;
@@ -40,18 +43,16 @@ namespace _01_Scripts.Frogs
 
         private void Update()
         {
-            var mousePosition = GetMousePosition();
-
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                var insect = DetectInArea2D<InsectBase>(mousePosition, radiusCapture, layerMask);
-                SpawnSpit(mousePosition);
-                DestroyInsects(insect);
-            }
-
-            CursorMoved(mousePosition);
+            _mousePosition = GetMousePosition();
+            CursorMoved(_mousePosition);
         }
 
+        public void MakeShot()
+        {
+            var insect = DetectInArea2D<InsectBase>(_mousePosition, radiusCapture, layerMask);
+            SpawnSpit(_mousePosition);
+            DestroyInsects(insect);
+        }
         public Vector2 PositionCursor => cursor.transform.position;
 
         private void CursorMoved(Vector2 position)

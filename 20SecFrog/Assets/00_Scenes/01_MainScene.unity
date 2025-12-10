@@ -2426,7 +2426,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 187556046769215264, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 197395218797567994, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: _count
@@ -2434,7 +2434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 560014899682354864, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 852249710229113194, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: _count
@@ -2446,11 +2446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1664962318811820977, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1967517319548680905, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2838116341508234973, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: _count
@@ -2478,7 +2478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6365530078602819696, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7673017353106024696, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
       propertyPath: _count
@@ -2766,6 +2766,10 @@ PrefabInstance:
       propertyPath: insectCapture
       value: 
       objectReference: {fileID: 401200644}
+    - target: {fileID: 1724429227865851196, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
+      propertyPath: tongueCooldownTimeSec
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7380290354714999703, guid: 0b4fa5b10df634948bcf94772f65f1a8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

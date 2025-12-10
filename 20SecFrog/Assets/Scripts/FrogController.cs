@@ -218,6 +218,7 @@ public class FrogController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !tongueActive && !coolingDown)
         {
             ShootTongue();
+            insectCapture.MakeShot();
         }
 
         if(canvas == null)
@@ -407,7 +408,7 @@ public class FrogController : MonoBehaviour
         mouth.SetActive(false);
 
         coolingDown = true;
-        yield return new WaitForSeconds(tongueCooldownTimeSec);
+        yield return new WaitForSeconds(tongueCooldownTimeSec); 
         coolingDown = false;
     }
 

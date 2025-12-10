@@ -138,7 +138,7 @@ MonoBehaviour:
   segmentLength: 0.2
   tongueSpeed: 30
   retractSpeed: 50
-  gravity: 0.9
+  gravity: 1
   damping: 0.95
   physicsIterations: 6
   tongueTipAliveTimeSec: 0.1
@@ -149,6 +149,7 @@ MonoBehaviour:
   tongueBaseColor: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
   endRoundness: 0.1
   tongueWidth: 1
+  insectCapture: {fileID: 0}
 --- !u!1 &4955774385945303481
 GameObject:
   m_ObjectHideFlags: 0

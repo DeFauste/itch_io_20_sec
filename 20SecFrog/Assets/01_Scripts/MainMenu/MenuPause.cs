@@ -34,6 +34,8 @@ namespace MainMenu
         [SerializeField] private InsectCapture insectCapture;
         [SerializeField] private List<Spawner> spawners = new List<Spawner>();
 
+        [SerializeField] private MusicPlayer player;
+
         private void OnEnable()
         {
             playGameButton.onClick.AddListener(() => StartGame());
@@ -94,6 +96,8 @@ namespace MainMenu
                 timerObject?.SetActive(true);
                 scoreObject?.SetActive(true);
                 timerGame?.ResumeTimer();
+
+                player.TriggerEvent();
             }
         }
 

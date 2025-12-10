@@ -1348,7 +1348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loopClip: {fileID: 8300000, guid: bc8277447d718e145972fa7e488ce093, type: 3}
-  eventClip: {fileID: 8300000, guid: 386a77926ba821042b1f1c652f380150, type: 3}
+  eventClip: {fileID: 8300000, guid: eb432b0c80a6b4649bb8689adf8a84d2, type: 3}
   crossfadeDuration: 1
 --- !u!1 &765036496 stripped
 GameObject:
@@ -2683,13 +2683,6 @@ MonoBehaviour:
   - {fileID: 1951133836}
   - {fileID: 1241609408}
   - {fileID: 1172122513}
-  - {fileID: 2133329677}
-  - {fileID: 468052755}
-  - {fileID: 132466742}
-  - {fileID: 1480568977}
-  - {fileID: 1967728757}
-  - {fileID: 6529016}
-  - {fileID: 1110685404}
   player: {fileID: 728356637}
 --- !u!114 &1570155646 stripped
 MonoBehaviour:

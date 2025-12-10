@@ -6,11 +6,9 @@ namespace _01_Scripts.Effects
 {
     public class Trip : MonoBehaviour
     {
-        public float targetAngle = 10; // угол в градусах
-        public float rotationSpeed = 2f;
-        public float SpeedRound = 0.1f;
-        public float TimeTrip = 5;
-        public Transform tripObject;
+        [SerializeField] private float _rotationsCount = 1f; // кол-во вращений за время трипа
+        [SerializeField] private float _timeTrip = 3f;
+        [SerializeField] private Transform _tripObject;
         private void Start()
         {
         }
@@ -22,14 +20,17 @@ namespace _01_Scripts.Effects
 
         private IEnumerator Rotation(Action callback = null)
         {
-            float time = 0;
-            while (time <= TimeTrip)
+            var startRotation = _tripObject.localEulerAngles;
+            var endRotation = _tripObject.localEulerAngles + new Vector3(0f, 0f, _rotationsCount * 360);
+            float elapsedTime = 0f;
+            
+            while (elapsedTime < _timeTrip)
             {
-                yield return new WaitForSeconds(SpeedRound);
-                Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-                tripObject.rotation = Quaternion.Slerp(tripObject.rotation, targetRotation, rotationSpeed);
-                targetAngle += rotationSpeed;
-                time += SpeedRound;
+                elapsedTime += Time.deltaTime;
+                float percentageComplete = elapsedTime / _timeTrip;
+                var newRotation = Vector3.Lerp(startRotation, endRotation, percentageComplete);
+                transform.rotation = Quaternion.Euler(newRotation);
+                yield return null;
             }
             callback?.Invoke();
         }

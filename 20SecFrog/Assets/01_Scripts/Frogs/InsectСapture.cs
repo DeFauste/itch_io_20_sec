@@ -24,6 +24,8 @@ namespace _01_Scripts.Frogs
         [SerializeField] private SpriteRenderer cursor;
         [SerializeField] public bool AtiveteCursor = false;
         public int CursorReverse = 1; // инвертирование прицела
+
+        private bool isLocked = false;
         
         [Header("Трупы насекомых")] [Tooltip("Записываем все трупы под тип")]
         [SerializeField] private SerializedDictionary<InsectType, GameObject> listInsectDead = new();
@@ -47,17 +49,28 @@ namespace _01_Scripts.Frogs
             CursorMoved(_mousePosition);
         }
 
-        public void MakeShot()
+        public void LockCursor()
         {
-            var insect = DetectInArea2D<InsectBase>(_mousePosition, radiusCapture, layerMask);
-            SpawnSpit(_mousePosition);
-            DestroyInsects(insect);
+            isLocked = true;
+        }
+
+        public void MakeShot(Transform tongueTip)
+        {
+            isLocked = false;
+
+            var insects = DetectInArea2D<InsectBase>(_mousePosition, radiusCapture, layerMask);
+            SpawnSpit(cursor.transform.position);
+            DestroyInsects(insects, tongueTip);
         }
         public Vector2 PositionCursor => cursor.transform.position;
 
         private void CursorMoved(Vector2 position)
         {
-            
+            if(isLocked)
+            {
+                return;
+            }
+
             if (cursor is not null)
             {
                 cursor.gameObject.transform.position = position * CursorReverse;
@@ -98,13 +111,14 @@ namespace _01_Scripts.Frogs
         }
 
         // Временная мера по удалению. Нужен пул насекомых куда они будут возвращаться, возможно для каждого насекомого
-        private void DestroyInsects(List<InsectBase> insects)
+        private void DestroyInsects(List<InsectBase> insects, Transform tongueTip)
         {
             foreach (var insect in insects)
             {      
                 var objInsect = Instantiate(listInsectDead[insect.GetInsectType()],  insect.transform.position, Quaternion.identity);
+                objInsect.transform.parent = tongueTip;
+
                 Effects(insect.GetInsectType());
-                DestroyAfterTime(objInsect,2);
                 score.AddScore(insect.GetScore());
                 insect.gameObject.SetActive(false);
             }
@@ -196,6 +210,12 @@ namespace _01_Scripts.Frogs
 
             spit.gameObject.SetActive(true);
             spit.StartFade();
+
+            var player = spit.GetComponent<RandomSoundPlayer>();
+            if(player != null)
+            {
+                player.PlaySound();
+            }
         }
     }
 }

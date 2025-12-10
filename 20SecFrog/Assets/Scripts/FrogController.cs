@@ -180,7 +180,7 @@ public class FrogController : MonoBehaviour
 
         tongueLineRenderer.startWidth = tongueWidth * 0.3f;
         tongueLineRenderer.endWidth = tongueWidth;
-        tongueLineRenderer.sortingOrder = 100;
+        tongueLineRenderer.sortingOrder = -1; //исправил на -1, т.к. язык был поверх всего на сцене
         tongueLineRenderer.textureMode = LineTextureMode.DistributePerSegment;
 
         tongueLineRenderer.enabled = false;

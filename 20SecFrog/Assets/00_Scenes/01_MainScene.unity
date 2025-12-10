@@ -245,7 +245,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3556102365982373409, guid: 0f0f70d0b884b39479b7652f97225823, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1085,17 +1086,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07740c9f996382546a8e0ab1768c40f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &647513634 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1260336091868138219, guid: 0be323632e3f40640977bea4d5900ddb, type: 3}
-  m_PrefabInstance: {fileID: 900208413}
+--- !u!1 &728356635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728356636}
+  - component: {fileID: 728356637}
+  m_Layer: 0
+  m_Name: MusicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728356636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728356635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1748240661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &728356637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728356635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07740c9f996382546a8e0ab1768c40f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4091e620020ac9b4e9339145d3549320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loopClip: {fileID: 8300000, guid: bc8277447d718e145972fa7e488ce093, type: 3}
+  eventClip: {fileID: 8300000, guid: eb432b0c80a6b4649bb8689adf8a84d2, type: 3}
+  crossfadeDuration: 1
 --- !u!1 &765036496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3380304441811781532, guid: 0f0f70d0b884b39479b7652f97225823, type: 3}
@@ -2429,13 +2466,7 @@ MonoBehaviour:
   - {fileID: 1951133836}
   - {fileID: 1241609408}
   - {fileID: 1172122513}
-  - {fileID: 2133329677}
-  - {fileID: 468052755}
-  - {fileID: 132466742}
-  - {fileID: 1480568977}
-  - {fileID: 647513634}
-  - {fileID: 6529016}
-  - {fileID: 1110685404}
+  player: {fileID: 728356637}
 --- !u!114 &1570155646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3638559307860264960, guid: 99e06b0ea79d345e1a924a9fdf30bde0, type: 3}
@@ -2576,6 +2607,7 @@ Transform:
   - {fileID: 401200643}
   - {fileID: 1559592614}
   - {fileID: 1798453509}
+  - {fileID: 728356636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798453508

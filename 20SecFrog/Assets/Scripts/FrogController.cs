@@ -52,6 +52,8 @@ public class FrogController : MonoBehaviour
     private bool coolingDown = false;
     private Vector3 mousePointWorldSpace = Vector3.zero;
     private RectTransform tongueTipTransform;
+
+    private RandomSoundPlayer yumPlayer;
     
     [SerializeField] private InsectCapture insectCapture;
     
@@ -133,7 +135,13 @@ public class FrogController : MonoBehaviour
         leftEyeOriginalPos = leftEye.anchoredPosition;
         rightEyeOriginalPos = rightEye.anchoredPosition;
 
-        
+        yumPlayer = GetComponent<RandomSoundPlayer>();
+        if(yumPlayer == null)
+        {
+            Debug.LogError("Failed to get yum player.");
+            enabled = false;
+            return;
+        }
 
         // Init line renderer
         if (tongueLineRenderer == null)
@@ -186,17 +194,6 @@ public class FrogController : MonoBehaviour
         mouth.SetActive(false);
     }
 
-    void UpdateMouseWorldPosition()
-    {
-        Vector2 mouseScreenPosition = Input.mousePosition;
-        RectTransformUtility.ScreenPointToWorldPointInRectangle(
-            canvasTransform,
-            mouseScreenPosition,
-            canvas.worldCamera,
-            out mousePointWorldSpace
-        );
-    }
-
     void UpdateEyePosition(RectTransform eye, Vector2 originalPos)
     {
         Vector2 aimPosition = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, _eyeTarget.position);
@@ -209,14 +206,12 @@ public class FrogController : MonoBehaviour
 
     void Update()
     {
-        UpdateMouseWorldPosition();
-
         Debug.DrawLine(tongueOrigin.position, mousePointWorldSpace, Color.green);
 
         if (Input.GetMouseButtonDown(0) && !tongueActive && !coolingDown)
         {
+            insectCapture.LockCursor();
             ShootTongue();
-            insectCapture.MakeShot();
         }
 
         if(canvas == null)
@@ -243,7 +238,9 @@ public class FrogController : MonoBehaviour
 
     void ShootTongue()
     {
-        targetPosition = mousePointWorldSpace;
+        targetPosition = _eyeTarget.position;
+        targetPosition.z = 90;
+
         tongueActive = true;
         extending = true;
         retracting = false;
@@ -374,6 +371,8 @@ public class FrogController : MonoBehaviour
     IEnumerator TongueAnimation()
     {
         mouth.SetActive(true);
+        tongueTip.SetActive(true);
+        tongueTipTransform.localScale = Vector3.one;
 
         // Wait for tongue to reach target
         while (extending)
@@ -391,19 +390,32 @@ public class FrogController : MonoBehaviour
 
             yield return null;
         }
-
-        tongueTip.SetActive(true);
         yield return new WaitForSeconds(tongueTipAliveTimeSec);
-        tongueTip.SetActive(false);
 
+        // Capture should be only when tongue reaches the point
+        insectCapture.MakeShot(tongueTipTransform);
 
         retracting = true;
         while (retracting && tongueActive)
         {
+            tongueTipTransform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
             yield return null;
         }
 
+        tongueTip.SetActive(false);
         mouth.SetActive(false);
+
+        if(tongueTipTransform.childCount != 0)
+        {
+            yumPlayer.PlaySound();
+        }
+
+        // Destroy children attached to tongue tip
+        for (int i = tongueTipTransform.childCount - 1; i >= 0; i--)
+        {
+            GameObject child = tongueTipTransform.GetChild(i).gameObject;
+            Destroy(child);
+        }
 
         coolingDown = true;
         yield return new WaitForSeconds(tongueCooldownTimeSec); 

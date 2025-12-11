@@ -113,10 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffects:
-  - {fileID: 8300000, guid: 137a2d798d8014549944c44fdcbeda25, type: 3}
-  - {fileID: 8300000, guid: 7dc67640f9d43004da52f1568ec4867a, type: 3}
-  - {fileID: 8300000, guid: 4b1a882e38ab3834ab3823a30a4609fd, type: 3}
-  - {fileID: 8300000, guid: 10d64418f28424e449cdc8ed518c5c5a, type: 3}
+  - {fileID: 8300000, guid: 9d5ba33541f4f134199d5644d5ad1f21, type: 3}
+  - {fileID: 8300000, guid: 6a79122ef3df91a438e88d3830237379, type: 3}
+  - {fileID: 8300000, guid: 8cd2c044a47701d499193d854631c1cd, type: 3}
   volumeRange: 1
   useShuffle: 1
   playOnStart: 0

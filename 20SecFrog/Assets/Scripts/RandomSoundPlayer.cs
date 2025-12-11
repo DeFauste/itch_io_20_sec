@@ -54,12 +54,12 @@ public class RandomSoundPlayer : MonoBehaviour
         }
 
         LazyInitialize();
-
-        float effectVolume = Random.Range(0.5f, volumeRange);
+        //убрал рандом громкости, не понадобился
+        //float effectVolume = Random.Range(0.5f, volumeRange);
 
         if (soundEffects.Count == 1)
         {
-            audioSource.PlayOneShot(soundEffects[0], effectVolume);
+            audioSource.PlayOneShot(soundEffects[0]);
             return;
         }
 
@@ -72,14 +72,14 @@ public class RandomSoundPlayer : MonoBehaviour
             }
 
             AudioClip soundClip = shuffledSounds[currentSoundIndex];
-            audioSource.PlayOneShot(soundClip, effectVolume);
+            audioSource.PlayOneShot(soundClip);
 
             currentSoundIndex = (currentSoundIndex + 1) % shuffledSounds.Count;
         }
         else
         {
             int randomIndex = Random.Range(0, soundEffects.Count);
-            audioSource.PlayOneShot(soundEffects[randomIndex], effectVolume);
+            audioSource.PlayOneShot(soundEffects[randomIndex]);
         }
     }
 

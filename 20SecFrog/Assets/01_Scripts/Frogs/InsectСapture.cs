@@ -116,7 +116,8 @@ namespace _01_Scripts.Frogs
             foreach (var insect in insects)
             {      
                 var objInsect = Instantiate(listInsectDead[insect.GetInsectType()],  insect.transform.position, Quaternion.identity);
-                objInsect.transform.parent = tongueTip;
+                // убрал механику съедания
+                //objInsect.transform.parent = tongueTip;
 
                 Effects(insect.GetInsectType());
                 score.AddScore(insect.GetScore());

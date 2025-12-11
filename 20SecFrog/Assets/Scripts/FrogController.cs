@@ -55,7 +55,7 @@ public class FrogController : MonoBehaviour
 
     private RandomSoundPlayer yumPlayer;
     
-    [SerializeField] private InsectCapture insectCapture;
+    [SerializeField] private InsectCapture insectCapture;  
     
     private class RopeSegment
     {

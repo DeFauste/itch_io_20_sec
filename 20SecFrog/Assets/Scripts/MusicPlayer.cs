@@ -72,7 +72,7 @@ public class MusicPlayer : MonoBehaviour
         StartCrossfade(eventClip, false);
     }
 
-    private void ReturnToLoop()
+    public void ReturnToLoop()
     {
         if (loopClip == null)
         {

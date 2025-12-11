@@ -73,6 +73,7 @@ namespace MainMenu
                 timerObject?.SetActive(false);
                 scoreObject?.SetActive(false);
                 timerGame.PauseTimer();
+                player.ReturnToLoop();
             }
         }
 

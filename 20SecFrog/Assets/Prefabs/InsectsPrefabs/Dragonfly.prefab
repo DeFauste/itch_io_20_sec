@@ -108,9 +108,9 @@ MonoBehaviour:
   _insectType: 2
   _score: 15
   _speed: 1
-  _moveDuration: 1
+  _moveDuration: 1.2
   _movesCount: 2
-  _firstMoveDuration: 0.75
+  _firstMoveDuration: 1
   _curve:
     serializedVersion: 2
     m_Curve:

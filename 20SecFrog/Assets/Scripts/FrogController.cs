@@ -396,11 +396,12 @@ public class FrogController : MonoBehaviour
         insectCapture.MakeShot(tongueTipTransform);
 
         retracting = true;
-        while (retracting && tongueActive)
-        {
-            tongueTipTransform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
-            yield return null;
-        }
+        // убрал скейлинг, т.к. инсекты просто исчезают мгновенно
+        // while (retracting && tongueActive)
+        // {
+        //     tongueTipTransform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+        //     yield return null;
+        // }
 
         tongueTip.SetActive(false);
         mouth.SetActive(false);

@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _insectType: 5
-  _score: 0
+  _score: -5
   _speed: 1
   _moveDuration: 2
   _movesCount: 1

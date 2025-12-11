@@ -11,8 +11,8 @@ namespace _01_Scripts.Frogs
 {
     public class InsectCapture : MonoBehaviour
     {
-        [SerializeField] private Score.Score score; 
-        
+        [SerializeField] private Score.Score score;
+
         [SerializeField] private float radiusCapture = 1f;
         [SerializeField] private LayerMask layerMask;
         private Vector2 gizmosPoint;
@@ -26,15 +26,17 @@ namespace _01_Scripts.Frogs
         public int CursorReverse = 1; // инвертирование прицела
 
         private bool isLocked = false;
-        
-        [Header("Трупы насекомых")] [Tooltip("Записываем все трупы под тип")]
-        [SerializeField] private SerializedDictionary<InsectType, GameObject> listInsectDead = new();
-        private GameState  gameState;
+
+        [Header("Трупы насекомых")] [Tooltip("Записываем все трупы под тип")] [SerializeField]
+        private SerializedDictionary<InsectType, GameObject> listInsectDead = new();
+
+        private GameState gameState;
+
         // Дебафы
         [SerializeField] private Trip trip;
         private bool isActiveSpeedEffect = false; // активировано уже замедление или нет
         // Дебафы
-        
+
         private Vector2 _mousePosition;
         private RandomSoundPlayer _smashSound;
 
@@ -68,11 +70,12 @@ namespace _01_Scripts.Frogs
             SpawnSpit(cursor.transform.position);
             DestroyInsects(insects, tongueTip);
         }
+
         public Vector2 PositionCursor => cursor.transform.position;
 
         private void CursorMoved(Vector2 position)
         {
-            if(isLocked)
+            if (isLocked)
             {
                 return;
             }
@@ -120,8 +123,9 @@ namespace _01_Scripts.Frogs
         private void DestroyInsects(List<InsectBase> insects, Transform tongueTip)
         {
             foreach (var insect in insects)
-            {      
-                var objInsect = Instantiate(listInsectDead[insect.GetInsectType()],  insect.transform.position, Quaternion.identity);
+            {
+                var objInsect = Instantiate(listInsectDead[insect.GetInsectType()], insect.transform.position,
+                    Quaternion.identity, transform);
                 // убрал механику съедания
                 //objInsect.transform.parent = tongueTip;
                 _smashSound.PlaySound();
@@ -159,7 +163,7 @@ namespace _01_Scripts.Frogs
             if (!isActiveSpeedEffect)
             {
                 gameState.SetSpeedInsectPercent(0.5f);
-                TimerDisableEffect(2,() =>
+                TimerDisableEffect(2, () =>
                 {
                     gameState.ResetSpeedInsectPercent();
                     isActiveSpeedEffect = false;
@@ -167,12 +171,12 @@ namespace _01_Scripts.Frogs
                 isActiveSpeedEffect = true;
             }
         }
-        
-        private void TimerDisableEffect(int seconds, Action  action)
+
+        private void TimerDisableEffect(int seconds, Action action)
         {
             StartCoroutine(StartTimer(seconds, action));
         }
-        
+
         private IEnumerator StartTimer(int seconds, Action action)
         {
             float time = seconds;
@@ -180,15 +184,17 @@ namespace _01_Scripts.Frogs
             {
                 yield return new WaitForSeconds(1);
 
-                    time -= 1;
+                time -= 1;
             }
+
             action?.Invoke();
         }
-        
+
         public void DestroyAfterTime(GameObject obj, float timeSeconds)
         {
             Destroy(obj, timeSeconds);
         }
+
         private Vector2 GetMousePosition()
         {
             Vector3 screenPos = Input.mousePosition;
@@ -219,7 +225,7 @@ namespace _01_Scripts.Frogs
             spit.StartFade();
 
             var player = spit.GetComponent<RandomSoundPlayer>();
-            if(player != null)
+            if (player != null)
             {
                 player.PlaySound();
             }

@@ -36,7 +36,13 @@ namespace _01_Scripts.Frogs
         // Дебафы
         
         private Vector2 _mousePosition;
-        
+        private RandomSoundPlayer _smashSound;
+
+        private void Awake()
+        {
+            _smashSound = GetComponent<RandomSoundPlayer>();
+        }
+
         private void Start()
         {
             gameState = GameState.Instance;
@@ -118,7 +124,7 @@ namespace _01_Scripts.Frogs
                 var objInsect = Instantiate(listInsectDead[insect.GetInsectType()],  insect.transform.position, Quaternion.identity);
                 // убрал механику съедания
                 //objInsect.transform.parent = tongueTip;
-
+                _smashSound.PlaySound();
                 Effects(insect.GetInsectType());
                 score.AddScore(insect.GetScore());
                 insect.gameObject.SetActive(false);

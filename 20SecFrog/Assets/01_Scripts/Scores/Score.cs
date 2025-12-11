@@ -9,7 +9,12 @@ namespace _01_Scripts.Score
         [SerializeField] private TextMeshProUGUI scoreText;
         private double scoreValue = 0d;
         public double ScoreValue => scoreValue;
-        public void ResetScore() => scoreValue = 0;
+        public void ResetScore()
+        {
+            scoreValue = 0;
+            scoreText.text = $"SCORE: {scoreValue}";
+        }
+
         public void Add()
         {
             AddScore(100);
@@ -19,14 +24,14 @@ namespace _01_Scripts.Score
         public void AddScore(double value)
         {
             scoreValue += value;
-            scoreText.text = $"{scoreValue}";
+            scoreText.text = $"SCORE: {scoreValue}";
         }
         
         // Вычесть очки
         public void DiffScore(double value)
         {
             scoreValue -= value;
-            scoreText.text = $"{scoreValue}";
+            scoreText.text = $"SCORE: {scoreValue}";
         }
     }
 }

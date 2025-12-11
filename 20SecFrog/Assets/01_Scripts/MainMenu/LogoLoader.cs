@@ -21,7 +21,7 @@ namespace MainMenu
 
         private void Start()
         {
-            StartCoroutine(StartTimer(3, () => StartFade(0)));
+            StartCoroutine(StartTimer(TimeShowLogo, () => StartFade(0)));
         }
 
         private void StartFade(float targetAlpha)
@@ -32,7 +32,7 @@ namespace MainMenu
             _fadeRoutine = StartCoroutine(FadeTo(targetAlpha));
         }
         
-        private IEnumerator StartTimer(int seconds, Action action)
+        private IEnumerator StartTimer(float seconds, Action action)
         {
             float time = seconds;
             while (time > 0)

@@ -124,6 +124,7 @@ namespace _01_Scripts.Frogs
                 var objInsect = Instantiate(listInsectDead[insect.GetInsectType()],  insect.transform.position, Quaternion.identity);
                 // убрал механику съедания
                 //objInsect.transform.parent = tongueTip;
+                Destroy(objInsect, 2.0f);
                 _smashSound.PlaySound();
                 Effects(insect.GetInsectType());
                 score.AddScore(insect.GetScore());
